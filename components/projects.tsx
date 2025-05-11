@@ -1,10 +1,13 @@
 "use client"
 
+import { useState, useEffect } from "react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Github } from "lucide-react"
 import Link from "next/link"
 import { FadeIn, SectionTitle } from "./motion-wrapper"
+import { motion, AnimatePresence } from "framer-motion"
+import { Badge } from "@/components/ui/badge"
 
 const projects = [
   {
@@ -41,11 +44,70 @@ const projects = [
     slug: "devconnect",
     featured: true,
   },
+  {
+    id: 4,
+    title: "SmartHome Hub",
+    description: "IoT dashboard for controlling and monitoring smart home devices with real-time updates.",
+    image: "/placeholder.svg?height=400&width=600",
+    tags: ["Vue.js", "Express", "Socket.io", "MongoDB"],
+    liveUrl: "https://smarthome-hub.example.com",
+    githubUrl: "https://github.com/rammurmu/smarthome-hub",
+    slug: "smarthome-hub",
+    featured: false,
+  },
+  {
+    id: 5,
+    title: "TravelBuddy",
+    description:
+      "Travel planning application with itinerary management, expense tracking, and location recommendations.",
+    image: "/placeholder.svg?height=400&width=600",
+    tags: ["React Native", "GraphQL", "AWS", "MapBox"],
+    liveUrl: "https://travelbuddy.example.com",
+    githubUrl: "https://github.com/rammurmu/travelbuddy",
+    slug: "travelbuddy",
+    featured: false,
+  },
+  {
+    id: 6,
+    title: "CodeReview AI",
+    description:
+      "AI-powered code review tool that provides suggestions and identifies potential bugs and security issues.",
+    image: "/placeholder.svg?height=400&width=600",
+    tags: ["Python", "TensorFlow", "FastAPI", "Docker"],
+    liveUrl: "https://codereview-ai.example.com",
+    githubUrl: "https://github.com/rammurmu/codereview-ai",
+    slug: "codereview-ai",
+    featured: false,
+  },
 ]
 
+// Extract all unique tags
+const allTags = Array.from(new Set(projects.flatMap((project) => project.tags)))
+
 export default function Projects() {
-  // Filter featured projects for initial display
-  const featuredProjects = projects.filter((project) => project.featured)
+  const [selectedTags, setSelectedTags] = useState<string[]>([])
+  const [filteredProjects, setFilteredProjects] = useState(projects)
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  useEffect(() => {
+    if (selectedTags.length === 0) {
+      // If no tags selected, show featured projects on homepage
+      setFilteredProjects(projects.filter((project) => project.featured))
+    } else {
+      // Filter projects that have at least one of the selected tags
+      setFilteredProjects(projects.filter((project) => project.tags.some((tag) => selectedTags.includes(tag))))
+    }
+  }, [selectedTags])
+
+  const toggleTag = (tag: string) => {
+    setSelectedTags((prev) => (prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag]))
+  }
+
+  if (!mounted) return null
 
   return (
     <section id="projects" className="py-20 bg-muted/30 backdrop-blur-sm">
@@ -53,51 +115,94 @@ export default function Projects() {
         <SectionTitle>My Projects</SectionTitle>
 
         <FadeIn delay={2}>
-          <p className="text-lg text-muted-foreground text-center max-w-3xl mx-auto mb-12">
+          <p className="text-lg text-muted-foreground text-center max-w-3xl mx-auto mb-8">
             Here are some of my recent projects. Each one was built to solve a specific problem and showcase different
             skills and technologies.
           </p>
         </FadeIn>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {featuredProjects.map((project, index) => (
-            <FadeIn key={index} delay={index + 3}>
-              <div className="bg-background/80 backdrop-blur-sm rounded-xl overflow-hidden shadow-sm border border-muted hover:border-primary/20 transition-all group h-full flex flex-col">
-                <div className="relative h-48 overflow-hidden">
-                  <Image
-                    src={project.image || "/placeholder.svg"}
-                    alt={project.title}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                </div>
-
-                <div className="p-6 flex flex-col flex-grow">
-                  <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                  <p className="text-muted-foreground mb-4 flex-grow">{project.description}</p>
-
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tags.map((tag, i) => (
-                      <span key={i} className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-
-                  <div className="flex gap-3 mt-auto">
-                    <Button asChild variant="outline" size="sm">
-                      <Link href={`/projects/${project.slug}`}>View Details</Link>
-                    </Button>
-                    <Button asChild variant="ghost" size="sm">
-                      <Link href={project.githubUrl} target="_blank">
-                        <Github className="h-4 w-4 mr-1" /> Code
-                      </Link>
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            </FadeIn>
+        <div className="flex flex-wrap justify-center gap-2 mb-8">
+          {allTags.map((tag) => (
+            <Badge
+              key={tag}
+              variant={selectedTags.includes(tag) ? "default" : "outline"}
+              className={`cursor-pointer ${
+                selectedTags.includes(tag) ? "bg-primary" : "hover:bg-primary/10"
+              } transition-colors`}
+              onClick={() => toggleTag(tag)}
+            >
+              {tag}
+            </Badge>
           ))}
+          {selectedTags.length > 0 && (
+            <Badge variant="secondary" className="cursor-pointer" onClick={() => setSelectedTags([])}>
+              Clear filters
+            </Badge>
+          )}
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <AnimatePresence mode="wait">
+            {filteredProjects.length > 0 ? (
+              filteredProjects.map((project, index) => (
+                <motion.div
+                  key={project.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.3, delay: index * 0.1 }}
+                  layout
+                >
+                  <div className="bg-background/80 backdrop-blur-sm rounded-xl overflow-hidden shadow-sm border border-muted hover:border-primary/20 transition-all group h-full flex flex-col">
+                    <div className="relative h-48 overflow-hidden">
+                      <Image
+                        src={project.image || "/placeholder.svg"}
+                        alt={project.title}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                    </div>
+
+                    <div className="p-6 flex flex-col flex-grow">
+                      <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
+                      <p className="text-muted-foreground mb-4 flex-grow">{project.description}</p>
+
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {project.tags.map((tag, i) => (
+                          <span
+                            key={i}
+                            className={`text-xs px-2 py-1 rounded-full ${
+                              selectedTags.includes(tag)
+                                ? "bg-primary text-primary-foreground"
+                                : "bg-primary/10 text-primary"
+                            }`}
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+
+                      <div className="flex gap-3 mt-auto">
+                        <Button asChild variant="outline" size="sm">
+                          <Link href={`/projects/${project.slug}`}>View Details</Link>
+                        </Button>
+                        <Button asChild variant="ghost" size="sm">
+                          <Link href={project.githubUrl} target="_blank">
+                            <Github className="h-4 w-4 mr-1" /> Code
+                          </Link>
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              ))
+            ) : (
+              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="col-span-full text-center py-12">
+                <p className="text-lg text-muted-foreground mb-4">No projects match the selected filters.</p>
+                <Button onClick={() => setSelectedTags([])}>Clear Filters</Button>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
 
         <div className="text-center mt-12">

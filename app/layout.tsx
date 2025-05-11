@@ -5,6 +5,8 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { LanguageProvider } from "@/context/language-context"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
+import Chatbot from "@/components/chatbot"
+import ThemeTransition from "@/components/theme-transition"
 import type { Metadata } from "next"
 
 const inter = Inter({ subsets: ["latin"] })
@@ -26,9 +28,11 @@ export default function RootLayout({
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <LanguageProvider>
+            <ThemeTransition />
             <Header />
             {children}
             <Footer />
+            <Chatbot />
           </LanguageProvider>
         </ThemeProvider>
       </body>

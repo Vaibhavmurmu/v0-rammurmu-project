@@ -126,12 +126,15 @@ const projects = [
   },
 ]
 
-// Extract unique categories
+// Extract unique categories and technologies
 const allCategories = Array.from(new Set(projects.flatMap((project) => project.categories)))
+const allTechnologies = Array.from(new Set(projects.flatMap((project) => project.tags)))
 
 export default function ProjectsPage() {
   const [selectedCategories, setSelectedCategories] = useState<string[]>([])
+  const [selectedTechnologies, setSelectedTechnologies] = useState<string[]>([])
   const [filteredProjects, setFilteredProjects] = useState(projects)
+  const [showTechFilters, setShowTechFilters] = useState(false)
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
@@ -139,19 +142,36 @@ export default function ProjectsPage() {
   }, [])
 
   useEffect(() => {
-    if (selectedCategories.length === 0) {
-      setFilteredProjects(projects)
-    } else {
-      setFilteredProjects(
-        projects.filter((project) => project.categories.some((category) => selectedCategories.includes(category))),
+    let filtered = projects
+
+    if (selectedCategories.length > 0) {
+      filtered = filtered.filter((project) =>
+        project.categories.some((category) => selectedCategories.includes(category)),
       )
     }
-  }, [selectedCategories])
+
+    if (selectedTechnologies.length > 0) {
+      filtered = filtered.filter((project) => project.tags.some((tag) => selectedTechnologies.includes(tag)))
+    }
+
+    setFilteredProjects(filtered)
+  }, [selectedCategories, selectedTechnologies])
 
   const toggleCategory = (category: string) => {
     setSelectedCategories((prev) =>
       prev.includes(category) ? prev.filter((c) => c !== category) : [...prev, category],
     )
+  }
+
+  const toggleTechnology = (technology: string) => {
+    setSelectedTechnologies((prev) =>
+      prev.includes(technology) ? prev.filter((t) => t !== technology) : [...prev, technology],
+    )
+  }
+
+  const clearFilters = () => {
+    setSelectedCategories([])
+    setSelectedTechnologies([])
   }
 
   if (!mounted) return null
@@ -170,22 +190,68 @@ export default function ProjectsPage() {
             A collection of my work across various technologies and domains.
           </p>
 
-          <div className="flex flex-wrap gap-2 mb-8">
-            {allCategories.map((category) => (
-              <Button
-                key={category}
-                variant={selectedCategories.includes(category) ? "default" : "outline"}
-                size="sm"
-                onClick={() => toggleCategory(category)}
-                className="rounded-full"
-              >
-                {category}
-              </Button>
-            ))}
-            {selectedCategories.length > 0 && (
-              <Button variant="ghost" size="sm" onClick={() => setSelectedCategories([])} className="rounded-full">
-                Clear Filters
-              </Button>
+          <div className="space-y-4 mb-8">
+            <div>
+              <h2 className="text-lg font-medium mb-2">Filter by Category</h2>
+              <div className="flex flex-wrap gap-2">
+                {allCategories.map((category) => (
+                  <Button
+                    key={category}
+                    variant={selectedCategories.includes(category) ? "default" : "outline"}
+                    size="sm"
+                    onClick={() => toggleCategory(category)}
+                    className="rounded-full"
+                  >
+                    {category}
+                  </Button>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <div className="flex items-center justify-between mb-2">
+                <h2 className="text-lg font-medium">Filter by Technology</h2>
+                <Button variant="ghost" size="sm" onClick={() => setShowTechFilters(!showTechFilters)}>
+                  {showTechFilters ? "Hide Technologies" : "Show Technologies"}
+                </Button>
+              </div>
+
+              <AnimatePresence>
+                {showTechFilters && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="overflow-hidden"
+                  >
+                    <div className="flex flex-wrap gap-2 py-2">
+                      {allTechnologies.map((technology) => (
+                        <Button
+                          key={technology}
+                          variant={selectedTechnologies.includes(technology) ? "default" : "outline"}
+                          size="sm"
+                          onClick={() => toggleTechnology(technology)}
+                          className="rounded-full"
+                        >
+                          {technology}
+                        </Button>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            {(selectedCategories.length > 0 || selectedTechnologies.length > 0) && (
+              <div className="flex items-center gap-2">
+                <p className="text-sm text-muted-foreground">
+                  Showing {filteredProjects.length} of {projects.length} projects
+                </p>
+                <Button variant="ghost" size="sm" onClick={clearFilters} className="rounded-full">
+                  Clear All Filters
+                </Button>
+              </div>
             )}
           </div>
         </div>
@@ -217,7 +283,14 @@ export default function ProjectsPage() {
 
                     <div className="flex flex-wrap gap-2 mb-4">
                       {project.tags.map((tag, i) => (
-                        <span key={i} className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
+                        <span
+                          key={i}
+                          className={`text-xs px-2 py-1 rounded-full ${
+                            selectedTechnologies.includes(tag)
+                              ? "bg-primary text-primary-foreground"
+                              : "bg-primary/10 text-primary"
+                          }`}
+                        >
                           {tag}
                         </span>
                       ))}
@@ -243,8 +316,10 @@ export default function ProjectsPage() {
         {filteredProjects.length === 0 && (
           <div className="text-center py-16">
             <h3 className="text-xl font-semibold mb-2">No projects found</h3>
-            <p className="text-muted-foreground mb-4">Try selecting different categories or clear the filters.</p>
-            <Button onClick={() => setSelectedCategories([])}>Clear Filters</Button>
+            <p className="text-muted-foreground mb-4">
+              Try selecting different categories or technologies, or clear the filters.
+            </p>
+            <Button onClick={clearFilters}>Clear Filters</Button>
           </div>
         )}
       </div>

@@ -7,6 +7,7 @@ import Testimonials from "@/components/testimonials"
 import BlogPreview from "@/components/blog-preview"
 import Newsletter from "@/components/newsletter"
 import Timeline from "@/components/timeline"
+import AnalyticsDashboard from "@/components/analytics-dashboard"
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
       <Projects />
       <Testimonials />
       <BlogPreview />
+      <AnalyticsDashboard />
       <Newsletter />
       <Contact />
     </main>
