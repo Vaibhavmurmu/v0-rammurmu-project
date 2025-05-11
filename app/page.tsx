@@ -8,6 +8,7 @@ import BlogPreview from "@/components/blog-preview"
 import Newsletter from "@/components/newsletter"
 import Timeline from "@/components/timeline"
 import AnalyticsDashboard from "@/components/analytics-dashboard"
+import ProjectCarousel from "@/components/project-carousel"
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <About />
       <Skills />
       <Timeline />
+      <ProjectCarousel />
       <Projects />
       <Testimonials />
       <BlogPreview />

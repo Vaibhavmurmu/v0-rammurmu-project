@@ -5,17 +5,10 @@ import { Button } from "@/components/ui/button"
 import { Globe } from "lucide-react"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { useLanguage } from "@/context/language-context"
-
-const languages = [
-  { code: "en", name: "English", flag: "🇺🇸" },
-  { code: "es", name: "Español", flag: "🇪🇸" },
-  { code: "fr", name: "Français", flag: "🇫🇷" },
-  { code: "de", name: "Deutsch", flag: "🇩🇪" },
-  { code: "hi", name: "हिन्दी", flag: "🇮🇳" },
-]
+import { motion } from "framer-motion"
 
 export default function LanguageSwitcher() {
-  const { language, setLanguage } = useLanguage()
+  const { language, setLanguage, languages } = useLanguage()
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
@@ -24,21 +17,28 @@ export default function LanguageSwitcher() {
 
   if (!mounted) return null
 
-  const currentLanguage = languages.find((lang) => lang.code === language) || languages[0]
+  const currentLanguage = languages[language] || languages.en
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="icon" className="rounded-full w-9 h-9">
+        <Button variant="ghost" size="icon" className="rounded-full w-9 h-9 relative">
           <Globe className="h-5 w-5" />
+          <motion.span
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            className="absolute -top-1 -right-1 flex items-center justify-center w-4 h-4 text-[10px] font-bold bg-primary text-primary-foreground rounded-full"
+          >
+            {currentLanguage.code.toUpperCase()}
+          </motion.span>
           <span className="sr-only">Switch language</span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        {languages.map((lang) => (
+        {Object.values(languages).map((lang) => (
           <DropdownMenuItem
             key={lang.code}
-            onClick={() => setLanguage(lang.code)}
+            onClick={() => setLanguage(lang.code as any)}
             className={language === lang.code ? "bg-muted" : ""}
           >
             <span className="mr-2">{lang.flag}</span>

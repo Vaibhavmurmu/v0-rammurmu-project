@@ -6,6 +6,8 @@ import { ChevronLeft, ChevronRight, Quote } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { SectionTitle, FadeIn } from "./motion-wrapper"
 import { motion, AnimatePresence } from "framer-motion"
+import TestimonialForm from "./testimonial-form"
+import { useLanguage } from "@/context/language-context"
 
 const testimonials = [
   {
@@ -43,6 +45,7 @@ const testimonials = [
 ]
 
 export default function Testimonials() {
+  const { t } = useLanguage()
   const [current, setCurrent] = useState(0)
   const [autoplay, setAutoplay] = useState(true)
 
@@ -69,12 +72,15 @@ export default function Testimonials() {
   return (
     <section id="testimonials" className="py-20">
       <div className="container mx-auto px-4">
-        <SectionTitle>Testimonials</SectionTitle>
+        <SectionTitle>{t("testimonials.title")}</SectionTitle>
 
         <FadeIn delay={2}>
-          <p className="text-lg text-muted-foreground text-center max-w-3xl mx-auto mb-12">
-            Here's what clients and colleagues have to say about working with me.
+          <p className="text-lg text-muted-foreground text-center max-w-3xl mx-auto mb-6">
+            {t("testimonials.description")}
           </p>
+          <div className="flex justify-center mb-12">
+            <TestimonialForm />
+          </div>
         </FadeIn>
 
         <div className="max-w-4xl mx-auto relative">
