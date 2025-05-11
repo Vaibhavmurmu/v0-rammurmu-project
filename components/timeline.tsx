@@ -8,10 +8,10 @@ import { useLanguage } from "@/context/language-context"
 const timelineItems = [
   {
     id: 1,
-    title: "Senior Full Stack Developer",
-    company: "RunAsh AI Inc.",
-    location: "San Francisco, CA",
-    period: "2025 - Present",
+    title: "Senior Developer",
+    company: "Runash Son's of Industries.",
+    location: "Bharat, IN",
+    period: "2017 - Present",
     description:
       "Led the full stack development team in building scalable web applications. Implemented modern frontend architecture using React and Next.js. Improved performance and accessibility across all projects.",
     type: "work",
@@ -19,7 +19,7 @@ const timelineItems = [
   {
     id: 2,
     title: "Full Stack Developer",
-    company: "Runash Digital Innovation Technologies Pvt Ltd.",
+    company: "Runash DIT Pvt Ltd.",
     location: "India, IN",
     period: "2021 - Present",
     description:
@@ -38,22 +38,22 @@ const timelineItems = [
   },
   {
     id: 4,
-    title: "Senior Web Developer",
-    company: "RunAsh AI Inc",
-    location: "Dalaware,San Francisco, CA",
+    title: "Senior Developer",
+    company: "RunAsh AI ",
+    location: "San Francisco, CA",
     period: "2025 - Present",
     description:
-      "Developed and maintained client websites using HTML, CSS, JavaScript, and PHP. Collaborated with designers to implement responsive designs. Assisted in migrating legacy systems to modern frameworks.",
+      "Research and Development in LLMs, NLP, Video Classification and using Open Stack TersorFlow, PyTorch, Transformer, Keras, OpenCV and Python etc. Building a responsible AI for humanity .",
     type: "work",
   },
   {
     id: 5,
     title: "Bachelor's in Computer Science",
     institution: "Massachusetts Institute of Technology",
-    location: "77 Massachusetts Avenue, Cambridge,MA, USA",
+    location: "Cambridge,MA, USA",
     period: "2014 - Present",
     description:
-      "Graduated with honors. Focused on web development and database systems. Specialized in Software Engineering and Artificial Intelligence. Completed thesis on 'Optimizing Web Performance in Modern Applications. And Completed capstone project on live streaming platform development.",
+      "Focused on AI and database systems. Specialized in Software Engineering and Artificial Intelligence. Working capstone project on live streaming platform development.",
     type: "education",
   },
 ]
