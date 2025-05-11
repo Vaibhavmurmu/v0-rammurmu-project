@@ -15,7 +15,7 @@ export default function About() {
             problems.
           </p>
           <p className="text-lg text-muted-foreground">
-            My journey in tech began 5 years ago, and since then, I've worked on various projects ranging from
+            My journey in tech began 9 years ago, and since then, I've worked on various projects ranging from
             e-commerce platforms to complex enterprise solutions. I'm constantly learning and adapting to new
             technologies to stay at the forefront of web development.
           </p>
@@ -28,9 +28,9 @@ export default function About() {
               <p className="text-muted-foreground">
                 Bachelor's in Computer Science
                 <br />
-                University of Technology
+                Massachusetts Institute of Technology
                 <br />
-                2016 - 2020
+                2014 - Present 
               </p>
             </div>
           </SlideIn>
@@ -39,9 +39,9 @@ export default function About() {
             <div className="bg-background/80 backdrop-blur-sm p-6 rounded-xl shadow-sm">
               <h3 className="text-xl font-semibold mb-3">Experience</h3>
               <p className="text-muted-foreground">
-                Senior Developer at TechCorp
+                Senior Developer at RunAsh  
                 <br />
-                Frontend Lead at WebSolutions
+                Tech Lead at RunAsh AI 
                 <br />
                 Freelance Developer
               </p>
