@@ -12,6 +12,17 @@ export default function ResumePage() {
 
   useEffect(() => {
     setMounted(true)
+
+    // Add print-specific keyboard shortcut
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.ctrlKey || e.metaKey) && e.key === "p") {
+        e.preventDefault()
+        window.print()
+      }
+    }
+
+    window.addEventListener("keydown", handleKeyDown)
+    return () => window.removeEventListener("keydown", handleKeyDown)
   }, [])
 
   const handlePrint = () => {
@@ -30,12 +41,13 @@ export default function ResumePage() {
             </Link>
           </Button>
           <div className="flex gap-2">
-            <Button variant="outline" onClick={handlePrint}>
-              <Printer className="mr-2 h-4 w-4" /> Print Resume
+            <Button variant="outline" onClick={handlePrint} className="group">
+              <Printer className="mr-2 h-4 w-4 group-hover:scale-110 transition-transform" /> Print Resume
+              <span className="ml-2 text-xs text-muted-foreground">(Ctrl+P)</span>
             </Button>
-            <Button asChild>
+            <Button asChild className="group">
               <a href="/Ram_Murmu_Resume.pdf" download="Ram_Murmu_Resume.pdf">
-                <Download className="mr-2 h-4 w-4" /> Download PDF
+                <Download className="mr-2 h-4 w-4 group-hover:translate-y-[-2px] transition-transform" /> Download PDF
               </a>
             </Button>
           </div>
@@ -54,22 +66,24 @@ export default function ResumePage() {
             </div>
             <div className="flex-1 text-center md:text-left">
               <h1 className="text-3xl font-bold mb-2 print:text-2xl">Ram Murmu</h1>
-              <p className="text-xl text-primary mb-4 print:text-lg print:mb-2">Full Stack Developer</p>
+              <p className="text-xl text-primary mb-4 print:text-lg print:mb-2 print:text-black">
+                Full Stack Developer
+              </p>
               <div className="flex flex-wrap gap-4 justify-center md:justify-start print:text-sm">
                 <div className="flex items-center gap-1">
-                  <Mail className="h-4 w-4 text-muted-foreground" />
+                  <Mail className="h-4 w-4 text-muted-foreground print:text-black" />
                   <span>ram.murmu@example.com</span>
                 </div>
                 <div className="flex items-center gap-1">
-                  <Phone className="h-4 w-4 text-muted-foreground" />
+                  <Phone className="h-4 w-4 text-muted-foreground print:text-black" />
                   <span>+91 98765 43210</span>
                 </div>
                 <div className="flex items-center gap-1">
-                  <MapPin className="h-4 w-4 text-muted-foreground" />
+                  <MapPin className="h-4 w-4 text-muted-foreground print:text-black" />
                   <span>Bangalore, India</span>
                 </div>
                 <div className="flex items-center gap-1">
-                  <Globe className="h-4 w-4 text-muted-foreground" />
+                  <Globe className="h-4 w-4 text-muted-foreground print:text-black" />
                   <span>rammurmu.com</span>
                 </div>
               </div>
@@ -78,7 +92,9 @@ export default function ResumePage() {
 
           {/* Summary */}
           <div className="mb-8 print:mb-6">
-            <h2 className="text-xl font-semibold mb-3 border-b pb-2 print:text-lg">Professional Summary</h2>
+            <h2 className="text-xl font-semibold mb-3 border-b pb-2 print:text-lg print:border-black">
+              Professional Summary
+            </h2>
             <p className="text-muted-foreground print:text-black">
               Full-stack developer with 5+ years of experience specializing in modern web technologies. Proficient in
               React, Next.js, Node.js, and cloud services. Passionate about creating scalable, user-friendly
@@ -89,7 +105,9 @@ export default function ResumePage() {
 
           {/* Skills */}
           <div className="mb-8 print:mb-6">
-            <h2 className="text-xl font-semibold mb-3 border-b pb-2 print:text-lg">Technical Skills</h2>
+            <h2 className="text-xl font-semibold mb-3 border-b pb-2 print:text-lg print:border-black">
+              Technical Skills
+            </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 print:gap-2">
               <div>
                 <h3 className="font-medium mb-2 print:text-sm">Frontend Development</h3>
@@ -119,18 +137,22 @@ export default function ResumePage() {
           </div>
 
           {/* Work Experience */}
-          <div className="mb-8 print:mb-6">
-            <h2 className="text-xl font-semibold mb-3 border-b pb-2 print:text-lg">Work Experience</h2>
+          <div className="mb-8 print:mb-6 print:break-before-avoid">
+            <h2 className="text-xl font-semibold mb-3 border-b pb-2 print:text-lg print:border-black">
+              Work Experience
+            </h2>
             <div className="space-y-6 print:space-y-4">
-              <div>
+              <div className="print:break-inside-avoid">
                 <div className="flex items-start justify-between mb-1">
                   <div className="flex items-center gap-2">
-                    <Briefcase className="h-4 w-4 text-primary" />
+                    <Briefcase className="h-4 w-4 text-primary print:text-black" />
                     <h3 className="font-semibold">Senior Frontend Developer</h3>
                   </div>
                   <span className="text-sm text-muted-foreground print:text-black">2022 - Present</span>
                 </div>
-                <p className="font-medium text-primary mb-1 print:text-sm">TechCorp Inc., San Francisco, CA</p>
+                <p className="font-medium text-primary mb-1 print:text-sm print:text-black">
+                  TechCorp Inc., San Francisco, CA
+                </p>
                 <ul className="list-disc list-inside text-muted-foreground space-y-1 print:text-black print:text-sm">
                   <li>Led a team of 5 developers in building scalable web applications using React and Next.js</li>
                   <li>Improved application performance by 40% through code optimization and lazy loading</li>
@@ -139,15 +161,17 @@ export default function ResumePage() {
                 </ul>
               </div>
 
-              <div>
+              <div className="print:break-inside-avoid">
                 <div className="flex items-start justify-between mb-1">
                   <div className="flex items-center gap-2">
-                    <Briefcase className="h-4 w-4 text-primary" />
+                    <Briefcase className="h-4 w-4 text-primary print:text-black" />
                     <h3 className="font-semibold">Full Stack Developer</h3>
                   </div>
                   <span className="text-sm text-muted-foreground print:text-black">2020 - 2022</span>
                 </div>
-                <p className="font-medium text-primary mb-1 print:text-sm">WebSolutions Ltd., New York, NY</p>
+                <p className="font-medium text-primary mb-1 print:text-sm print:text-black">
+                  WebSolutions Ltd., New York, NY
+                </p>
                 <ul className="list-disc list-inside text-muted-foreground space-y-1 print:text-black print:text-sm">
                   <li>Developed full-stack applications using React, Node.js, and MongoDB</li>
                   <li>Collaborated with design and product teams to deliver high-quality user experiences</li>
@@ -156,15 +180,17 @@ export default function ResumePage() {
                 </ul>
               </div>
 
-              <div>
+              <div className="print:break-inside-avoid">
                 <div className="flex items-start justify-between mb-1">
                   <div className="flex items-center gap-2">
-                    <Briefcase className="h-4 w-4 text-primary" />
+                    <Briefcase className="h-4 w-4 text-primary print:text-black" />
                     <h3 className="font-semibold">Junior Web Developer</h3>
                   </div>
                   <span className="text-sm text-muted-foreground print:text-black">2017 - 2020</span>
                 </div>
-                <p className="font-medium text-primary mb-1 print:text-sm">Digital Creations, Chicago, IL</p>
+                <p className="font-medium text-primary mb-1 print:text-sm print:text-black">
+                  Digital Creations, Chicago, IL
+                </p>
                 <ul className="list-disc list-inside text-muted-foreground space-y-1 print:text-black print:text-sm">
                   <li>Developed and maintained client websites using HTML, CSS, JavaScript, and PHP</li>
                   <li>Collaborated with designers to implement responsive designs</li>
@@ -176,33 +202,37 @@ export default function ResumePage() {
           </div>
 
           {/* Education */}
-          <div className="mb-8 print:mb-6">
-            <h2 className="text-xl font-semibold mb-3 border-b pb-2 print:text-lg">Education</h2>
+          <div className="mb-8 print:mb-6 print:break-before-avoid">
+            <h2 className="text-xl font-semibold mb-3 border-b pb-2 print:text-lg print:border-black">Education</h2>
             <div className="space-y-4 print:space-y-3">
-              <div>
+              <div className="print:break-inside-avoid">
                 <div className="flex items-start justify-between mb-1">
                   <div className="flex items-center gap-2">
-                    <GraduationCap className="h-4 w-4 text-primary" />
+                    <GraduationCap className="h-4 w-4 text-primary print:text-black" />
                     <h3 className="font-semibold">Master's in Computer Science</h3>
                   </div>
                   <span className="text-sm text-muted-foreground print:text-black">2018 - 2020</span>
                 </div>
-                <p className="font-medium text-primary mb-1 print:text-sm">Tech University, Boston, MA</p>
+                <p className="font-medium text-primary mb-1 print:text-sm print:text-black">
+                  Tech University, Boston, MA
+                </p>
                 <p className="text-muted-foreground print:text-black print:text-sm">
                   Specialized in Software Engineering and Artificial Intelligence. Completed thesis on "Optimizing Web
                   Performance in Modern Applications".
                 </p>
               </div>
 
-              <div>
+              <div className="print:break-inside-avoid">
                 <div className="flex items-start justify-between mb-1">
                   <div className="flex items-center gap-2">
-                    <GraduationCap className="h-4 w-4 text-primary" />
+                    <GraduationCap className="h-4 w-4 text-primary print:text-black" />
                     <h3 className="font-semibold">Bachelor's in Computer Science</h3>
                   </div>
                   <span className="text-sm text-muted-foreground print:text-black">2013 - 2017</span>
                 </div>
-                <p className="font-medium text-primary mb-1 print:text-sm">University of Technology, Chicago, IL</p>
+                <p className="font-medium text-primary mb-1 print:text-sm print:text-black">
+                  University of Technology, Chicago, IL
+                </p>
                 <p className="text-muted-foreground print:text-black print:text-sm">
                   Graduated with honors. Focused on web development and database systems. Completed capstone project on
                   e-commerce platform development.
@@ -212,21 +242,23 @@ export default function ResumePage() {
           </div>
 
           {/* Certifications */}
-          <div className="mb-8 print:mb-6">
-            <h2 className="text-xl font-semibold mb-3 border-b pb-2 print:text-lg">Certifications</h2>
+          <div className="mb-8 print:mb-6 print:break-inside-avoid">
+            <h2 className="text-xl font-semibold mb-3 border-b pb-2 print:text-lg print:border-black">
+              Certifications
+            </h2>
             <div className="space-y-2">
               <div className="flex items-center gap-2">
-                <Award className="h-4 w-4 text-primary" />
+                <Award className="h-4 w-4 text-primary print:text-black" />
                 <span className="font-medium">AWS Certified Developer - Associate</span>
                 <span className="text-sm text-muted-foreground print:text-black">2022</span>
               </div>
               <div className="flex items-center gap-2">
-                <Award className="h-4 w-4 text-primary" />
+                <Award className="h-4 w-4 text-primary print:text-black" />
                 <span className="font-medium">MongoDB Certified Developer</span>
                 <span className="text-sm text-muted-foreground print:text-black">2021</span>
               </div>
               <div className="flex items-center gap-2">
-                <Award className="h-4 w-4 text-primary" />
+                <Award className="h-4 w-4 text-primary print:text-black" />
                 <span className="font-medium">Google Cloud Professional Developer</span>
                 <span className="text-sm text-muted-foreground print:text-black">2020</span>
               </div>
@@ -234,27 +266,35 @@ export default function ResumePage() {
           </div>
 
           {/* Projects */}
-          <div className="print:mb-6">
-            <h2 className="text-xl font-semibold mb-3 border-b pb-2 print:text-lg">Featured Projects</h2>
+          <div className="print:mb-6 print:break-inside-avoid">
+            <h2 className="text-xl font-semibold mb-3 border-b pb-2 print:text-lg print:border-black">
+              Featured Projects
+            </h2>
             <div className="space-y-4 print:space-y-3">
-              <div>
+              <div className="print:break-inside-avoid">
                 <h3 className="font-semibold">HealthTrack Pro</h3>
-                <p className="text-sm text-primary mb-1 print:text-xs">React, Node.js, MongoDB, Chart.js</p>
+                <p className="text-sm text-primary mb-1 print:text-xs print:text-black">
+                  React, Node.js, MongoDB, Chart.js
+                </p>
                 <p className="text-muted-foreground print:text-black print:text-sm">
                   A comprehensive health tracking application with personalized insights and analytics dashboard.
                 </p>
               </div>
-              <div>
+              <div className="print:break-inside-avoid">
                 <h3 className="font-semibold">EcoShop</h3>
-                <p className="text-sm text-primary mb-1 print:text-xs">Next.js, Stripe, PostgreSQL, Tailwind CSS</p>
+                <p className="text-sm text-primary mb-1 print:text-xs print:text-black">
+                  Next.js, Stripe, PostgreSQL, Tailwind CSS
+                </p>
                 <p className="text-muted-foreground print:text-black print:text-sm">
                   An e-commerce platform focused on eco-friendly products with integrated payment processing and
                   inventory management.
                 </p>
               </div>
-              <div>
+              <div className="print:break-inside-avoid">
                 <h3 className="font-semibold">DevConnect</h3>
-                <p className="text-sm text-primary mb-1 print:text-xs">React, Firebase, Redux, Material UI</p>
+                <p className="text-sm text-primary mb-1 print:text-xs print:text-black">
+                  React, Firebase, Redux, Material UI
+                </p>
                 <p className="text-muted-foreground print:text-black print:text-sm">
                   A social platform for developers to share projects, collaborate, and find job opportunities.
                 </p>
@@ -269,17 +309,37 @@ export default function ResumePage() {
         @media print {
           @page {
             margin: 0.5in;
+            size: portrait;
           }
           body {
             print-color-adjust: exact;
             -webkit-print-color-adjust: exact;
-            color: black;
-            background: white;
+            color: black !important;
+            background: white !important;
           }
           nav,
           footer,
           .print-hidden {
             display: none !important;
+          }
+          h1, h2, h3, h4, h5, h6, p, li, span {
+            color: black !important;
+          }
+          a {
+            text-decoration: none !important;
+            color: black !important;
+          }
+          .border-b {
+            border-color: black !important;
+          }
+          .print-break-before {
+            break-before: page;
+          }
+          .print-break-after {
+            break-after: page;
+          }
+          .print-break-inside-avoid {
+            break-inside: avoid;
           }
         }
       `}</style>

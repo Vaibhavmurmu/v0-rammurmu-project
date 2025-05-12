@@ -1,13 +1,12 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { Github } from "lucide-react"
 import Link from "next/link"
 import { FadeIn, SectionTitle } from "./motion-wrapper"
 import { motion, AnimatePresence } from "framer-motion"
 import { Badge } from "@/components/ui/badge"
+import ProjectCard3D from "./project-card-3d"
 
 const projects = [
   {
@@ -152,48 +151,9 @@ export default function Projects() {
                   exit={{ opacity: 0, scale: 0.95 }}
                   transition={{ duration: 0.3, delay: index * 0.1 }}
                   layout
+                  className="h-full"
                 >
-                  <div className="bg-background/80 backdrop-blur-sm rounded-xl overflow-hidden shadow-sm border border-muted hover:border-primary/20 transition-all group h-full flex flex-col">
-                    <div className="relative h-48 overflow-hidden">
-                      <Image
-                        src={project.image || "/placeholder.svg"}
-                        alt={project.title}
-                        fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-110"
-                      />
-                    </div>
-
-                    <div className="p-6 flex flex-col flex-grow">
-                      <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                      <p className="text-muted-foreground mb-4 flex-grow">{project.description}</p>
-
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        {project.tags.map((tag, i) => (
-                          <span
-                            key={i}
-                            className={`text-xs px-2 py-1 rounded-full ${
-                              selectedTags.includes(tag)
-                                ? "bg-primary text-primary-foreground"
-                                : "bg-primary/10 text-primary"
-                            }`}
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-
-                      <div className="flex gap-3 mt-auto">
-                        <Button asChild variant="outline" size="sm">
-                          <Link href={`/projects/${project.slug}`}>View Details</Link>
-                        </Button>
-                        <Button asChild variant="ghost" size="sm">
-                          <Link href={project.githubUrl} target="_blank">
-                            <Github className="h-4 w-4 mr-1" /> Code
-                          </Link>
-                        </Button>
-                      </div>
-                    </div>
-                  </div>
+                  <ProjectCard3D project={project} priority={index < 3} />
                 </motion.div>
               ))
             ) : (

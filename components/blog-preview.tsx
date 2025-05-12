@@ -1,10 +1,9 @@
 "use client"
 
 import Link from "next/link"
-import Image from "next/image"
-import { Calendar, Clock, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { SectionTitle, FadeIn, SlideIn } from "./motion-wrapper"
+import { SectionTitle, FadeIn } from "./motion-wrapper"
+import BlogCard from "./blog-card"
 
 const blogPosts = [
   {
@@ -53,39 +52,9 @@ export default function BlogPreview() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {blogPosts.map((post, index) => (
-            <SlideIn key={post.id} delay={index + 3}>
-              <Link href={`/blog/${post.slug}`} className="group block h-full">
-                <div className="bg-background/80 backdrop-blur-sm rounded-xl overflow-hidden shadow-sm border border-muted hover:border-primary/20 transition-all h-full flex flex-col">
-                  <div className="relative h-48 overflow-hidden">
-                    <Image
-                      src={post.image || "/placeholder.svg"}
-                      alt={post.title}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                  </div>
-                  <div className="p-6 flex flex-col flex-grow">
-                    <div className="flex items-center gap-4 text-sm text-muted-foreground mb-3">
-                      <div className="flex items-center">
-                        <Calendar className="h-4 w-4 mr-1" />
-                        {post.date}
-                      </div>
-                      <div className="flex items-center">
-                        <Clock className="h-4 w-4 mr-1" />
-                        {post.readTime}
-                      </div>
-                    </div>
-                    <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
-                      {post.title}
-                    </h3>
-                    <p className="text-muted-foreground mb-4 flex-grow">{post.excerpt}</p>
-                    <div className="flex items-center text-primary font-medium mt-auto">
-                      Read More <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                    </div>
-                  </div>
-                </div>
-              </Link>
-            </SlideIn>
+            <div key={post.id}>
+              <BlogCard post={post} index={index} />
+            </div>
           ))}
         </div>
 

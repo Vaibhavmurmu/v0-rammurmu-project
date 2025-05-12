@@ -7,6 +7,13 @@ import Header from "@/components/header"
 import Footer from "@/components/footer"
 import Chatbot from "@/components/chatbot"
 import ThemeTransition from "@/components/theme-transition"
+import PageTransition from "@/components/page-transition"
+import ScrollProgress from "@/components/scroll-progress"
+import FloatingActionButton from "@/components/floating-action-button"
+import CookieConsent from "@/components/cookie-consent"
+// Temporarily remove problematic components
+// import KeyboardShortcuts from "@/components/keyboard-shortcuts"
+// import UIInteractions from "@/components/ui-interactions"
 import type { Metadata } from "next"
 
 const inter = Inter({ subsets: ["latin"] })
@@ -29,10 +36,16 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <LanguageProvider>
             <ThemeTransition />
+            <ScrollProgress />
             <Header />
-            {children}
+            <PageTransition>{children}</PageTransition>
             <Footer />
             <Chatbot />
+            <FloatingActionButton />
+            <CookieConsent />
+            {/* Temporarily remove problematic components */}
+            {/* <KeyboardShortcuts /> */}
+            {/* <UIInteractions /> */}
           </LanguageProvider>
         </ThemeProvider>
       </body>

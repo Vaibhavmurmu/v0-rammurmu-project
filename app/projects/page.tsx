@@ -1,11 +1,12 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import Image from "next/image"
 import Link from "next/link"
-import { ArrowLeft, ExternalLink } from "lucide-react"
+import { ArrowLeft, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { motion, AnimatePresence } from "framer-motion"
+import AdvancedFilter from "@/components/advanced-filter"
+import ProjectCard3D from "@/components/project-card-3d"
 
 const projects = [
   {
@@ -134,44 +135,53 @@ export default function ProjectsPage() {
   const [selectedCategories, setSelectedCategories] = useState<string[]>([])
   const [selectedTechnologies, setSelectedTechnologies] = useState<string[]>([])
   const [filteredProjects, setFilteredProjects] = useState(projects)
-  const [showTechFilters, setShowTechFilters] = useState(false)
+  const [searchQuery, setSearchQuery] = useState("")
   const [mounted, setMounted] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     setMounted(true)
+    // Simulate loading state
+    const timer = setTimeout(() => {
+      setIsLoading(false)
+    }, 1000)
+    return () => clearTimeout(timer)
   }, [])
 
   useEffect(() => {
     let filtered = projects
 
+    // Filter by categories
     if (selectedCategories.length > 0) {
       filtered = filtered.filter((project) =>
         project.categories.some((category) => selectedCategories.includes(category)),
       )
     }
 
+    // Filter by technologies
     if (selectedTechnologies.length > 0) {
       filtered = filtered.filter((project) => project.tags.some((tag) => selectedTechnologies.includes(tag)))
     }
 
+    // Filter by search query
+    if (searchQuery) {
+      const query = searchQuery.toLowerCase()
+      filtered = filtered.filter(
+        (project) =>
+          project.title.toLowerCase().includes(query) ||
+          project.description.toLowerCase().includes(query) ||
+          project.tags.some((tag) => tag.toLowerCase().includes(query)) ||
+          project.categories.some((category) => category.toLowerCase().includes(query)),
+      )
+    }
+
     setFilteredProjects(filtered)
-  }, [selectedCategories, selectedTechnologies])
-
-  const toggleCategory = (category: string) => {
-    setSelectedCategories((prev) =>
-      prev.includes(category) ? prev.filter((c) => c !== category) : [...prev, category],
-    )
-  }
-
-  const toggleTechnology = (technology: string) => {
-    setSelectedTechnologies((prev) =>
-      prev.includes(technology) ? prev.filter((t) => t !== technology) : [...prev, technology],
-    )
-  }
+  }, [selectedCategories, selectedTechnologies, searchQuery])
 
   const clearFilters = () => {
     setSelectedCategories([])
     setSelectedTechnologies([])
+    setSearchQuery("")
   }
 
   if (!mounted) return null
@@ -180,9 +190,9 @@ export default function ProjectsPage() {
     <main className="min-h-screen pt-32 pb-20">
       <div className="container mx-auto px-4">
         <div className="mb-8">
-          <Button asChild variant="ghost" className="mb-6">
+          <Button asChild variant="ghost" className="mb-6 group">
             <Link href="/">
-              <ArrowLeft className="mr-2 h-4 w-4" /> Back to Home
+              <ArrowLeft className="mr-2 h-4 w-4 transition-transform group-hover:-translate-x-1" /> Back to Home
             </Link>
           </Button>
           <h1 className="text-4xl font-bold mb-4">Projects</h1>
@@ -190,138 +200,101 @@ export default function ProjectsPage() {
             A collection of my work across various technologies and domains.
           </p>
 
-          <div className="space-y-4 mb-8">
-            <div>
-              <h2 className="text-lg font-medium mb-2">Filter by Category</h2>
-              <div className="flex flex-wrap gap-2">
-                {allCategories.map((category) => (
-                  <Button
-                    key={category}
-                    variant={selectedCategories.includes(category) ? "default" : "outline"}
-                    size="sm"
-                    onClick={() => toggleCategory(category)}
-                    className="rounded-full"
-                  >
-                    {category}
-                  </Button>
-                ))}
-              </div>
-            </div>
-
-            <div>
-              <div className="flex items-center justify-between mb-2">
-                <h2 className="text-lg font-medium">Filter by Technology</h2>
-                <Button variant="ghost" size="sm" onClick={() => setShowTechFilters(!showTechFilters)}>
-                  {showTechFilters ? "Hide Technologies" : "Show Technologies"}
-                </Button>
-              </div>
-
-              <AnimatePresence>
-                {showTechFilters && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="overflow-hidden"
-                  >
-                    <div className="flex flex-wrap gap-2 py-2">
-                      {allTechnologies.map((technology) => (
-                        <Button
-                          key={technology}
-                          variant={selectedTechnologies.includes(technology) ? "default" : "outline"}
-                          size="sm"
-                          onClick={() => toggleTechnology(technology)}
-                          className="rounded-full"
-                        >
-                          {technology}
-                        </Button>
-                      ))}
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-
-            {(selectedCategories.length > 0 || selectedTechnologies.length > 0) && (
-              <div className="flex items-center gap-2">
-                <p className="text-sm text-muted-foreground">
-                  Showing {filteredProjects.length} of {projects.length} projects
-                </p>
-                <Button variant="ghost" size="sm" onClick={clearFilters} className="rounded-full">
-                  Clear All Filters
-                </Button>
-              </div>
+          {/* Search input */}
+          <div className="relative mb-6">
+            <input
+              type="text"
+              placeholder="Search projects..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full p-3 pl-10 rounded-lg border border-muted bg-background/80 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-primary/50"
+            />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              />
+            </svg>
+            {searchQuery && (
+              <button
+                onClick={() => setSearchQuery("")}
+                className="absolute right-3 top-1/2 transform -translate-y-1/2 text-muted-foreground hover:text-foreground"
+              >
+                <X className="h-5 w-5" />
+              </button>
             )}
           </div>
+
+          {/* Advanced filter component */}
+          <AdvancedFilter
+            categories={allCategories}
+            technologies={allTechnologies}
+            selectedCategories={selectedCategories}
+            selectedTechnologies={selectedTechnologies}
+            onCategoryChange={setSelectedCategories}
+            onTechnologyChange={setSelectedTechnologies}
+            onClearFilters={clearFilters}
+          />
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <AnimatePresence>
-            {filteredProjects.map((project) => (
-              <motion.div
-                key={project.id}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                layout
-                transition={{ duration: 0.3 }}
-              >
-                <div className="bg-background/80 backdrop-blur-sm rounded-xl overflow-hidden shadow-sm border border-muted hover:border-primary/20 transition-all group h-full flex flex-col">
-                  <div className="relative h-48 overflow-hidden">
-                    <Image
-                      src={project.image || "/placeholder.svg"}
-                      alt={project.title}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
-                  </div>
-
-                  <div className="p-6 flex flex-col flex-grow">
-                    <h2 className="text-xl font-semibold mb-2">{project.title}</h2>
-                    <p className="text-muted-foreground mb-4">{project.description}</p>
-
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {project.tags.map((tag, i) => (
-                        <span
-                          key={i}
-                          className={`text-xs px-2 py-1 rounded-full ${
-                            selectedTechnologies.includes(tag)
-                              ? "bg-primary text-primary-foreground"
-                              : "bg-primary/10 text-primary"
-                          }`}
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-
-                    <div className="flex gap-3 mt-auto">
-                      <Button asChild variant="outline" size="sm">
-                        <Link href={`/projects/${project.slug}`}>View Details</Link>
-                      </Button>
-                      <Button asChild variant="ghost" size="sm">
-                        <Link href={project.liveUrl} target="_blank">
-                          <ExternalLink className="h-4 w-4 mr-1" /> Demo
-                        </Link>
-                      </Button>
+          <AnimatePresence mode="wait">
+            {isLoading ? (
+              // Loading skeleton
+              <>
+                {[1, 2, 3, 4, 5, 6].map((i) => (
+                  <div
+                    key={i}
+                    className="bg-background/80 backdrop-blur-sm rounded-xl overflow-hidden shadow-sm border border-muted"
+                  >
+                    <div className="h-48 bg-muted animate-pulse"></div>
+                    <div className="p-6 space-y-4">
+                      <div className="h-6 bg-muted animate-pulse rounded"></div>
+                      <div className="h-20 bg-muted animate-pulse rounded"></div>
+                      <div className="flex gap-2">
+                        {[1, 2, 3].map((j) => (
+                          <div key={j} className="h-6 w-16 bg-muted animate-pulse rounded-full"></div>
+                        ))}
+                      </div>
+                      <div className="flex gap-3">
+                        {[1, 2, 3].map((j) => (
+                          <div key={j} className="h-9 w-24 bg-muted animate-pulse rounded"></div>
+                        ))}
+                      </div>
                     </div>
                   </div>
-                </div>
+                ))}
+              </>
+            ) : filteredProjects.length > 0 ? (
+              filteredProjects.map((project, index) => (
+                <motion.div
+                  key={project.id}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  layout
+                  transition={{ duration: 0.3, delay: index * 0.05 }}
+                  className="h-full"
+                >
+                  <ProjectCard3D project={project} priority={index < 3} />
+                </motion.div>
+              ))
+            ) : (
+              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="col-span-full text-center py-12">
+                <p className="text-lg text-muted-foreground mb-4">No projects match the selected filters.</p>
+                <Button onClick={clearFilters}>Clear Filters</Button>
               </motion.div>
-            ))}
+            )}
           </AnimatePresence>
         </div>
-
-        {filteredProjects.length === 0 && (
-          <div className="text-center py-16">
-            <h3 className="text-xl font-semibold mb-2">No projects found</h3>
-            <p className="text-muted-foreground mb-4">
-              Try selecting different categories or technologies, or clear the filters.
-            </p>
-            <Button onClick={clearFilters}>Clear Filters</Button>
-          </div>
-        )}
       </div>
     </main>
   )

@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button"
 import ThemeToggle from "@/components/theme-toggle"
 import Search from "@/components/search"
 import LanguageSwitcher from "@/components/language-switcher"
+import ThemeCustomizer from "@/components/theme-customizer"
 
 const navItems = [
   { name: "Home", href: "#home" },
@@ -50,6 +51,7 @@ export default function Header() {
           <div className="flex items-center gap-2">
             <Search />
             <LanguageSwitcher />
+            <ThemeCustomizer />
             <ThemeToggle />
           </div>
         </nav>
@@ -58,6 +60,7 @@ export default function Header() {
         <div className="flex items-center gap-2 md:hidden">
           <Search />
           <LanguageSwitcher />
+          <ThemeCustomizer />
           <ThemeToggle />
           <Button variant="ghost" size="icon" onClick={() => setIsOpen(!isOpen)} className="md:hidden">
             {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
