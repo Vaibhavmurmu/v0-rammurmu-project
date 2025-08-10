@@ -120,7 +120,7 @@ export default function Hero() {
             className="absolute inset-0 rounded-full bg-gradient-to-tr from-primary/20 to-primary/40 blur-3xl -z-10"
           />
           <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-background shadow-xl">
-            <Image src="public/rammurmu.jpg?height=500&width=500" alt="Ram Murmu" fill className="object-cover" priority />
+            <Image src="/rammurmu.jpg?height=500&width=500" alt="Ram Murmu" fill className="object-cover" priority />
           </div>
         </motion.div>
       </div>
