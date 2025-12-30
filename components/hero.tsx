@@ -44,7 +44,7 @@ export default function Hero() {
               transition={{ duration: 0.5, delay: 0.4 }}
               className="text-primary"
             >
-              Ram Murmu
+              Vaibhav Murmu 
             </motion.span>
           </motion.h1>
           <motion.p
@@ -68,7 +68,7 @@ export default function Hero() {
               </Link>
             </Button>
             <Button asChild variant="outline" size="lg" className="rounded-full">
-              <a href="/Ram_Murmu_Resume.pdf" download="Ram_Murmu_Resume.pdf">
+              <a href="/Vaibhav_Murmu_Resume.pdf" download="Vaibhav_Murmu_Resume.pdf">
                 <Download className="mr-2 h-4 w-4" /> {t("hero.download")}
               </a>
             </Button>
@@ -81,19 +81,19 @@ export default function Hero() {
             className="flex gap-4 pt-4"
           >
             <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
-              <Button variant="ghost" size="icon" className="rounded-full">
+              <Button href="https://github.com/vaibhavmurmu" size="icon" className="rounded-full">
                 <Github className="h-5 w-5" />
                 <span className="sr-only">GitHub</span>
               </Button>
             </motion.div>
             <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
-              <Button variant="ghost" size="icon" className="rounded-full">
+              <Button href="https://linkedin.com/in/vaibhavmurmu" size="icon" className="rounded-full">
                 <Linkedin className="h-5 w-5" />
                 <span className="sr-only">LinkedIn</span>
               </Button>
             </motion.div>
             <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
-              <Button variant="ghost" size="icon" className="rounded-full">
+              <Button href="https://x.com/vaibhavmurmu" size="icon" className="rounded-full">
                 <Twitter className="h-5 w-5" />
                 <span className="sr-only">Twitter</span>
               </Button>
@@ -120,7 +120,7 @@ export default function Hero() {
             className="absolute inset-0 rounded-full bg-gradient-to-tr from-primary/20 to-primary/40 blur-3xl -z-10"
           />
           <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-background shadow-xl">
-            <Image src="/placeholder.svg?height=500&width=500" alt="Ram Murmu" fill className="object-cover" priority />
+            <Image src="/vaibhavmurmu.svg?height=500&width=500" alt="Vaibhav Murmu" fill className="object-cover" priority />
           </div>
         </motion.div>
       </div>
