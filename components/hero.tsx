@@ -44,7 +44,7 @@ export default function Hero() {
               transition={{ duration: 0.5, delay: 0.4 }}
               className="text-primary"
             >
-              Ram Murmu
+              Vaibhav Murmu
             </motion.span>
           </motion.h1>
           <motion.p
@@ -120,7 +120,7 @@ export default function Hero() {
             className="absolute inset-0 rounded-full bg-gradient-to-tr from-primary/20 to-primary/40 blur-3xl -z-10"
           />
           <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-background shadow-xl">
-            <Image src="/placeholder.svg?height=500&width=500" alt="Ram Murmu" fill className="object-cover" priority />
+            <Image src="/vaibhavmurmu.jpg?height=500&width=500" alt="Vaibhav Murmu" fill className="object-cover" priority />
           </div>
         </motion.div>
       </div>
