@@ -12,8 +12,8 @@ import ThemeCustomizer from "@/components/theme-customizer"
 const navItems = [
   { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
-  { name: "Skills", href: "#skills" },
-  { name: "Projects", href: "#projects" },
+  // { name: "Skills", href: "#skills" },
+  // { name: "Projects", href: "#projects" },
   { name: "Blog", href: "#blog" },
   { name: "Contact", href: "#contact" },
 ]
@@ -38,7 +38,7 @@ export default function Header() {
     >
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <Link href="#home" className="text-xl font-bold">
-          Ram<span className="text-primary">Murmu</span>
+          VAIBHAV<span className="text-primary">MURMU</span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -58,10 +58,7 @@ export default function Header() {
 
         {/* Mobile Navigation Toggle */}
         <div className="flex items-center gap-2 md:hidden">
-          <Search />
-          <LanguageSwitcher />
-          <ThemeCustomizer />
-          <ThemeToggle />
+          
           <Button variant="ghost" size="icon" onClick={() => setIsOpen(!isOpen)} className="md:hidden">
             {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </Button>
