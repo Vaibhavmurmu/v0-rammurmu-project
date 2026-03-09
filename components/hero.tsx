@@ -20,7 +20,7 @@ export default function Hero() {
     <section id="home" className="relative min-h-screen flex items-center">
       {/* Background with blur effect */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/placeholder.svg?height=1080&width=1920')] bg-cover bg-center opacity-50 dark:opacity-30" />
+        <div className="absolute inset-0 bg-[url('/placeholder.svg')] bg-cover bg-center opacity-50 dark:opacity-30" />
         <div className="absolute inset-0 backdrop-blur-sm bg-background/50" />
       </div>
 
@@ -68,9 +68,9 @@ export default function Hero() {
               </Link>
             </Button>
             <Button asChild variant="outline" size="lg" className="rounded-full">
-              <a href="/Ram_Murmu_Resume.pdf" download="Ram_Murmu_Resume.pdf">
-                <Download className="mr-2 h-4 w-4" /> {t("hero.download")}
-              </a>
+              <Link href="/resume">
+                <Download className="mr-2 h-4 w-4" /> View Vaibhav's Resume
+              </Link>
             </Button>
           </motion.div>
 
@@ -120,7 +120,7 @@ export default function Hero() {
             className="absolute inset-0 rounded-full bg-gradient-to-tr from-primary/20 to-primary/40 blur-3xl -z-10"
           />
           <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-background shadow-xl">
-            <Image src="/vaibhavmurmu.jpg?height=500&width=500" alt="Vaibhav Murmu" fill className="object-cover" priority />
+            <Image src="/rammurmu.jpg" alt="Vaibhav Murmu" fill className="object-cover" priority />
           </div>
         </motion.div>
       </div>
