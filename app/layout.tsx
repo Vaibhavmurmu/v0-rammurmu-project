@@ -1,6 +1,5 @@
 import type React from "react"
 import "@/app/globals.css"
-import { Inter } from "next/font/google"
 import { ThemeProvider } from "@/components/theme-provider"
 import { LanguageProvider } from "@/context/language-context"
 import Header from "@/components/header"
@@ -16,7 +15,6 @@ import CookieConsent from "@/components/cookie-consent"
 // import UIInteractions from "@/components/ui-interactions"
 import type { Metadata } from "next"
 
-const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: "Vaibhav Murmu | Co-founder & CFO and Developer",
@@ -32,7 +30,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
+      <body className="antialiased">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <LanguageProvider>
             <ThemeTransition />
