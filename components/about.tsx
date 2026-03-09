@@ -10,14 +10,14 @@ export default function About() {
 
         <FadeIn delay={2} className="max-w-3xl mx-auto text-center mb-12">
           <p className="text-lg text-muted-foreground mb-6">
-            I'm a passionate developer with expertise in building modern web applications. With a strong foundation in
-            both frontend and backend technologies, I create seamless, user-friendly experiences that solve real-world
-            problems.
+            I'm Vaibhav Murmu, a Co-founder & CFO with an engineering-first mindset. I lead financial strategy,
+            investor planning, and operational execution while staying hands-on with product architecture and technical
+            delivery.
           </p>
           <p className="text-lg text-muted-foreground">
-            My journey in tech began 5 years ago, and since then, I've worked on various projects ranging from
-            e-commerce platforms to complex enterprise solutions. I'm constantly learning and adapting to new
-            technologies to stay at the forefront of web development.
+            Over the last several years, I've worked at the intersection of finance and technology—building systems,
+            guiding cross-functional teams, and translating business goals into scalable digital products. I care about
+            disciplined execution, clear metrics, and long-term value creation.
           </p>
         </FadeIn>
 
@@ -26,11 +26,11 @@ export default function About() {
             <div className="bg-background/80 backdrop-blur-sm p-6 rounded-xl shadow-sm">
               <h3 className="text-xl font-semibold mb-3">Education</h3>
               <p className="text-muted-foreground">
-                Bachelor's in Computer Science
+                B.Tech in Computer Science
                 <br />
-                University of Technology
+                National Institute of Technology
                 <br />
-                2016 - 2020
+                2013 - 2017
               </p>
             </div>
           </SlideIn>
@@ -39,11 +39,11 @@ export default function About() {
             <div className="bg-background/80 backdrop-blur-sm p-6 rounded-xl shadow-sm">
               <h3 className="text-xl font-semibold mb-3">Experience</h3>
               <p className="text-muted-foreground">
-                Senior Developer at TechCorp
+                Co-founder & CFO at Rammurmu Labs
                 <br />
-                Frontend Lead at WebSolutions
+                Head of Engineering at FinEdge Technologies
                 <br />
-                Freelance Developer
+                Software Engineer at StackForge Systems
               </p>
             </div>
           </SlideIn>
@@ -52,11 +52,11 @@ export default function About() {
             <div className="bg-background/80 backdrop-blur-sm p-6 rounded-xl shadow-sm">
               <h3 className="text-xl font-semibold mb-3">Interests</h3>
               <p className="text-muted-foreground">
-                Open Source Contribution
+                Startup Finance & Unit Economics
                 <br />
-                UI/UX Design
+                Product Engineering & Automation
                 <br />
-                Artificial Intelligence
+                Fintech Innovation
               </p>
             </div>
           </SlideIn>

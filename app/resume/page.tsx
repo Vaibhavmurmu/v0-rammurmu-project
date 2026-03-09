@@ -62,17 +62,17 @@ export default function ResumePage() {
           {/* Resume Header */}
           <div className="flex flex-col md:flex-row gap-6 mb-8 print:mb-6">
             <div className="relative w-32 h-32 rounded-full overflow-hidden border-4 border-background shadow-xl mx-auto md:mx-0 print:border-none print:shadow-none">
-              <Image src="/placeholder.svg?height=128&width=128" alt="Ram Murmu" fill className="object-cover" />
+              <Image src="/placeholder.svg?height=128&width=128" alt="Vaibhav Murmu" fill className="object-cover" />
             </div>
             <div className="flex-1 text-center md:text-left">
-              <h1 className="text-3xl font-bold mb-2 print:text-2xl">Ram Murmu</h1>
+              <h1 className="text-3xl font-bold mb-2 print:text-2xl">Vaibhav Murmu</h1>
               <p className="text-xl text-primary mb-4 print:text-lg print:mb-2 print:text-black">
-                Full Stack Developer
+                Co-founder & CFO | Technical Product Leader
               </p>
               <div className="flex flex-wrap gap-4 justify-center md:justify-start print:text-sm">
                 <div className="flex items-center gap-1">
                   <Mail className="h-4 w-4 text-muted-foreground print:text-black" />
-                  <span>ram.murmu@example.com</span>
+                  <span>vaibhav@rammurmu.com</span>
                 </div>
                 <div className="flex items-center gap-1">
                   <Phone className="h-4 w-4 text-muted-foreground print:text-black" />
@@ -80,7 +80,7 @@ export default function ResumePage() {
                 </div>
                 <div className="flex items-center gap-1">
                   <MapPin className="h-4 w-4 text-muted-foreground print:text-black" />
-                  <span>Bangalore, India</span>
+                  <span>Bengaluru, India</span>
                 </div>
                 <div className="flex items-center gap-1">
                   <Globe className="h-4 w-4 text-muted-foreground print:text-black" />
@@ -96,10 +96,9 @@ export default function ResumePage() {
               Professional Summary
             </h2>
             <p className="text-muted-foreground print:text-black">
-              Full-stack developer with 5+ years of experience specializing in modern web technologies. Proficient in
-              React, Next.js, Node.js, and cloud services. Passionate about creating scalable, user-friendly
-              applications with a focus on performance and accessibility. Strong problem-solving skills and experience
-              working in collaborative, agile environments.
+              Founder-operator with experience spanning startup finance, product strategy, and engineering execution.
+              As Co-founder & CFO, I lead fundraising readiness, financial planning, and business operations while
+              remaining hands-on in product development, systems design, and delivery leadership.
             </p>
           </div>
 
@@ -146,18 +145,18 @@ export default function ResumePage() {
                 <div className="flex items-start justify-between mb-1">
                   <div className="flex items-center gap-2">
                     <Briefcase className="h-4 w-4 text-primary print:text-black" />
-                    <h3 className="font-semibold">Senior Frontend Developer</h3>
+                    <h3 className="font-semibold">Co-founder & CFO</h3>
                   </div>
                   <span className="text-sm text-muted-foreground print:text-black">2022 - Present</span>
                 </div>
                 <p className="font-medium text-primary mb-1 print:text-sm print:text-black">
-                  TechCorp Inc., San Francisco, CA
+                  Rammurmu Labs, Bengaluru, India
                 </p>
                 <ul className="list-disc list-inside text-muted-foreground space-y-1 print:text-black print:text-sm">
-                  <li>Led a team of 5 developers in building scalable web applications using React and Next.js</li>
-                  <li>Improved application performance by 40% through code optimization and lazy loading</li>
-                  <li>Implemented CI/CD pipelines that reduced deployment time by 60%</li>
-                  <li>Mentored junior developers and conducted code reviews to maintain code quality</li>
+                  <li>Own annual planning, budgeting, cash-flow governance, and investor reporting</li>
+                  <li>Partner with product and engineering to prioritize roadmap investments against business goals</li>
+                  <li>Built KPI dashboards for revenue, burn, and unit economics to support decision-making</li>
+                  <li>Implemented operating cadences and cross-functional reviews to improve execution predictability</li>
                 </ul>
               </div>
 
@@ -165,18 +164,18 @@ export default function ResumePage() {
                 <div className="flex items-start justify-between mb-1">
                   <div className="flex items-center gap-2">
                     <Briefcase className="h-4 w-4 text-primary print:text-black" />
-                    <h3 className="font-semibold">Full Stack Developer</h3>
+                    <h3 className="font-semibold">Head of Engineering</h3>
                   </div>
-                  <span className="text-sm text-muted-foreground print:text-black">2020 - 2022</span>
+                  <span className="text-sm text-muted-foreground print:text-black">2019 - 2022</span>
                 </div>
                 <p className="font-medium text-primary mb-1 print:text-sm print:text-black">
-                  WebSolutions Ltd., New York, NY
+                  FinEdge Technologies, Bengaluru, India
                 </p>
                 <ul className="list-disc list-inside text-muted-foreground space-y-1 print:text-black print:text-sm">
-                  <li>Developed full-stack applications using React, Node.js, and MongoDB</li>
-                  <li>Collaborated with design and product teams to deliver high-quality user experiences</li>
-                  <li>Implemented authentication and authorization systems using JWT and OAuth</li>
-                  <li>Optimized database queries resulting in 30% faster response times</li>
+                  <li>Led architecture and delivery of fintech web products and internal operations platforms</li>
+                  <li>Scaled engineering processes through CI/CD, code review standards, and sprint governance</li>
+                  <li>Mentored frontend and backend engineers across hiring, onboarding, and technical growth</li>
+                  <li>Improved platform reliability and release quality through test automation initiatives</li>
                 </ul>
               </div>
 
@@ -184,18 +183,18 @@ export default function ResumePage() {
                 <div className="flex items-start justify-between mb-1">
                   <div className="flex items-center gap-2">
                     <Briefcase className="h-4 w-4 text-primary print:text-black" />
-                    <h3 className="font-semibold">Junior Web Developer</h3>
+                    <h3 className="font-semibold">Software Engineer</h3>
                   </div>
-                  <span className="text-sm text-muted-foreground print:text-black">2017 - 2020</span>
+                  <span className="text-sm text-muted-foreground print:text-black">2017 - 2019</span>
                 </div>
                 <p className="font-medium text-primary mb-1 print:text-sm print:text-black">
-                  Digital Creations, Chicago, IL
+                  StackForge Systems, Pune, India
                 </p>
                 <ul className="list-disc list-inside text-muted-foreground space-y-1 print:text-black print:text-sm">
-                  <li>Developed and maintained client websites using HTML, CSS, JavaScript, and PHP</li>
-                  <li>Collaborated with designers to implement responsive designs</li>
-                  <li>Assisted in migrating legacy systems to modern frameworks</li>
-                  <li>Provided technical support and troubleshooting for client websites</li>
+                  <li>Built full-stack modules using React, Node.js, and PostgreSQL for enterprise clients</li>
+                  <li>Collaborated with product managers to convert business requirements into technical solutions</li>
+                  <li>Enhanced performance and maintainability of legacy services through refactoring initiatives</li>
+                  <li>Supported release and incident workflows to improve production stability</li>
                 </ul>
               </div>
             </div>
@@ -209,16 +208,15 @@ export default function ResumePage() {
                 <div className="flex items-start justify-between mb-1">
                   <div className="flex items-center gap-2">
                     <GraduationCap className="h-4 w-4 text-primary print:text-black" />
-                    <h3 className="font-semibold">Master's in Computer Science</h3>
+                    <h3 className="font-semibold">MBA in Finance &amp; Strategy</h3>
                   </div>
-                  <span className="text-sm text-muted-foreground print:text-black">2018 - 2020</span>
+                  <span className="text-sm text-muted-foreground print:text-black">2017 - 2019</span>
                 </div>
                 <p className="font-medium text-primary mb-1 print:text-sm print:text-black">
-                  Tech University, Boston, MA
+                  Indian Institute of Management Bangalore, Bengaluru, India
                 </p>
                 <p className="text-muted-foreground print:text-black print:text-sm">
-                  Specialized in Software Engineering and Artificial Intelligence. Completed thesis on "Optimizing Web
-                  Performance in Modern Applications".
+                  Focused on corporate finance, financial modeling, and growth strategy for technology ventures.
                 </p>
               </div>
 
@@ -226,16 +224,15 @@ export default function ResumePage() {
                 <div className="flex items-start justify-between mb-1">
                   <div className="flex items-center gap-2">
                     <GraduationCap className="h-4 w-4 text-primary print:text-black" />
-                    <h3 className="font-semibold">Bachelor's in Computer Science</h3>
+                    <h3 className="font-semibold">B.Tech in Computer Science</h3>
                   </div>
                   <span className="text-sm text-muted-foreground print:text-black">2013 - 2017</span>
                 </div>
                 <p className="font-medium text-primary mb-1 print:text-sm print:text-black">
-                  University of Technology, Chicago, IL
+                  National Institute of Technology, Rourkela, India
                 </p>
                 <p className="text-muted-foreground print:text-black print:text-sm">
-                  Graduated with honors. Focused on web development and database systems. Completed capstone project on
-                  e-commerce platform development.
+                  Built a strong foundation in software engineering, data structures, and distributed systems.
                 </p>
               </div>
             </div>

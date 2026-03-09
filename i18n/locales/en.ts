@@ -1,7 +1,7 @@
 export const en = {
   "meta.title": "Ram Murmu | Personal Portfolio",
   "meta.description":
-    "Personal portfolio website of Ram Murmu, a full-stack developer specializing in modern web technologies.",
+    "Personal portfolio website of Vaibhav Murmu, Co-founder & CFO with a strong engineering and product leadership background.",
 
   "nav.home": "Home",
   "nav.about": "About",
@@ -12,7 +12,7 @@ export const en = {
 
   "hero.greeting": "Hi, I'm",
   "hero.role":
-    "Full-stack developer specializing in modern web technologies and creating exceptional digital experiences.",
+    "Co-founder & CFO focused on finance strategy, product execution, and engineering-led growth.",
   "hero.contact": "Contact Me",
   "hero.download": "Download CV",
 
