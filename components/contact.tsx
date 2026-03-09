@@ -98,7 +98,7 @@ export default function Contact() {
               </div>
               <div>
                 <h3 className="text-lg font-semibold mb-1">{t("contact.email")}</h3>
-                <p className="text-muted-foreground">ram.murmu@example.com</p>
+                <p className="text-muted-foreground">hello@vaibhavmurmu.com</p>
               </div>
             </div>
 

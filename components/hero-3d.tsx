@@ -52,9 +52,9 @@ function FloatingName() {
         bevelSize={0.02}
         bevelOffset={0}
         bevelSegments={5}
-        position={[-1.75, 0, 0]}
+        position={[-2.35, 0, 0]}
       >
-        RAM MURMU
+        VAIBHAV MURMU
         {material && <primitive object={material} attach="material" />}
       </Text3D>
     </Float>
@@ -64,8 +64,8 @@ function FloatingName() {
 // Loading fallback component
 function LoadingText() {
   return (
-    <Text3D font="/fonts/Inter_Bold.json" size={0.5} height={0.1} position={[-1.75, 0, 0]}>
-      RAM MURMU
+    <Text3D font="/fonts/Inter_Bold.json" size={0.5} height={0.1} position={[-2.35, 0, 0]}>
+      VAIBHAV MURMU
       <meshStandardMaterial color="#888888" />
     </Text3D>
   )
@@ -138,10 +138,10 @@ export default function Hero3D() {
               </Link>
             </Button>
             <Button asChild variant="outline" size="lg" className="rounded-full group">
-              <a href="/Ram_Murmu_Resume.pdf" download="Ram_Murmu_Resume.pdf">
+              <Link href="/resume">
                 <Download className="mr-2 h-4 w-4 transition-transform group-hover:translate-y-[-2px]" />
-                {t("hero.download")}
-              </a>
+                View Resume
+              </Link>
             </Button>
           </motion.div>
 
@@ -152,21 +152,27 @@ export default function Hero3D() {
             className="flex gap-4 pt-4"
           >
             <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
-              <Button variant="ghost" size="icon" className="rounded-full">
-                <Github className="h-5 w-5" />
-                <span className="sr-only">GitHub</span>
+              <Button asChild variant="ghost" size="icon" className="rounded-full">
+                <a href="https://github.com/vaibhavmurmu" target="_blank" rel="noopener noreferrer">
+                  <Github className="h-5 w-5" />
+                  <span className="sr-only">GitHub</span>
+                </a>
               </Button>
             </motion.div>
             <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
-              <Button variant="ghost" size="icon" className="rounded-full">
-                <Linkedin className="h-5 w-5" />
-                <span className="sr-only">LinkedIn</span>
+              <Button asChild variant="ghost" size="icon" className="rounded-full">
+                <a href="https://linkedin.com/in/vaibhavmurmu" target="_blank" rel="noopener noreferrer">
+                  <Linkedin className="h-5 w-5" />
+                  <span className="sr-only">LinkedIn</span>
+                </a>
               </Button>
             </motion.div>
             <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
-              <Button variant="ghost" size="icon" className="rounded-full">
-                <Twitter className="h-5 w-5" />
-                <span className="sr-only">Twitter</span>
+              <Button asChild variant="ghost" size="icon" className="rounded-full">
+                <a href="https://x.com/vaibhavmurmu" target="_blank" rel="noopener noreferrer">
+                  <Twitter className="h-5 w-5" />
+                  <span className="sr-only">Twitter</span>
+                </a>
               </Button>
             </motion.div>
           </motion.div>
@@ -191,7 +197,7 @@ export default function Hero3D() {
             className="absolute inset-0 rounded-full bg-gradient-to-tr from-primary/20 to-primary/40 blur-3xl -z-10"
           />
           <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-background shadow-xl">
-            <Image src="/placeholder.svg?height=500&width=500" alt="Ram Murmu" fill className="object-cover" priority />
+            <Image src="/rammurmu.jpg" alt="Vaibhav Murmu" fill className="object-cover" priority />
           </div>
         </motion.div>
       </div>

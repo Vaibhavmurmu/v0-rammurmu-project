@@ -19,34 +19,34 @@ type Message = {
 // Sample predefined responses
 const botResponses: Record<string, string[]> = {
   greeting: [
-    "Hello! I'm Ram's virtual assistant. How can I help you today?",
-    "Hi there! I'm here to help you navigate Ram's portfolio. What would you like to know?",
-    "Welcome! I can help answer questions about Ram's work and experience. What are you interested in?",
+    "Hello! I'm Vaibhav's virtual assistant. How can I help you today?",
+    "Hi there! I'm here to help you navigate Vaibhav's portfolio. What would you like to know?",
+    "Welcome! I can help answer questions about Vaibhav's work and experience. What are you interested in?",
   ],
   skills: [
-    "Ram specializes in full-stack development with expertise in React, Next.js, Node.js, and various database technologies. He also has experience with cloud services and DevOps.",
-    "Ram's technical skills include frontend development (React, Next.js), backend development (Node.js, Express), database management (MongoDB, PostgreSQL), and DevOps (Docker, AWS).",
+    "Vaibhav specializes in full-stack development with expertise in React, Next.js, Node.js, and various database technologies. He also has experience with cloud services and DevOps.",
+    "Vaibhav's technical skills include frontend development (React, Next.js), backend development (Node.js, Express), database management (MongoDB, PostgreSQL), and DevOps (Docker, AWS).",
   ],
   experience: [
-    "Ram has over 5 years of experience in web development. He has worked as a Senior Frontend Developer at TechCorp, Full Stack Developer at WebSolutions, and Junior Web Developer at Digital Creations.",
-    "Ram's professional journey includes 5+ years in web development across various roles, from junior developer to senior frontend developer, working with diverse technologies and industries.",
+    "Vaibhav has over 5 years of experience in web development. He has worked as a Senior Frontend Developer at TechCorp, Full Stack Developer at WebSolutions, and Junior Web Developer at Digital Creations.",
+    "Vaibhav's professional journey includes 5+ years in web development across various roles, from junior developer to senior frontend developer, working with diverse technologies and industries.",
   ],
   projects: [
-    "Ram has worked on several notable projects including HealthTrack Pro (health tracking app), EcoShop (e-commerce platform), and DevConnect (developer social platform). You can view all projects in the Projects section.",
-    "Some of Ram's featured projects include a health tracking application, an eco-friendly e-commerce platform, and a social network for developers. Each project showcases different skills and technologies.",
+    "Vaibhav has worked on several notable projects including HealthTrack Pro (health tracking app), EcoShop (e-commerce platform), and DevConnect (developer social platform). You can view all projects in the Projects section.",
+    "Some of Vaibhav's featured projects include a health tracking application, an eco-friendly e-commerce platform, and a social network for developers. Each project showcases different skills and technologies.",
   ],
   contact: [
-    "You can contact Ram through the contact form in the Contact section. Alternatively, you can email him directly at ram.murmu@example.com.",
-    "The best way to reach Ram is through the contact form on this website or via email at ram.murmu@example.com. He's always open to discussing new opportunities and collaborations.",
+    "You can contact Vaibhav through the contact form in the Contact section. Alternatively, you can email him directly at hello@vaibhavmurmu.com.",
+    "The best way to reach Vaibhav is through the contact form on this website or via email at hello@vaibhavmurmu.com. He's always open to discussing new opportunities and collaborations.",
   ],
   education: [
-    "Ram holds a Master's in Computer Science from Tech University and a Bachelor's in Computer Science from the University of Technology.",
-    "Ram's educational background includes a Master's degree specializing in Software Engineering and AI, and a Bachelor's degree focused on web development and database systems.",
+    "Vaibhav holds a Master's in Computer Science from Tech University and a Bachelor's in Computer Science from the University of Technology.",
+    "Vaibhav's educational background includes a Master's degree specializing in Software Engineering and AI, and a Bachelor's degree focused on web development and database systems.",
   ],
   default: [
     "I'm not sure I understand. Could you rephrase your question?",
-    "I don't have information about that yet. Would you like to know about Ram's skills, experience, projects, or how to contact him?",
-    "I'm still learning! Could you ask about something related to Ram's portfolio, like his skills, projects, or experience?",
+    "I don't have information about that yet. Would you like to know about Vaibhav's skills, experience, projects, or how to contact him?",
+    "I'm still learning! Could you ask about something related to Vaibhav's portfolio, like his skills, projects, or experience?",
   ],
 }
 
@@ -83,7 +83,7 @@ export default function Chatbot() {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "welcome",
-      content: "Hi there! I'm Ram's virtual assistant. How can I help you today?",
+      content: "Hi there! I'm Vaibhav's virtual assistant. How can I help you today?",
       sender: "bot",
       timestamp: new Date(),
     },
@@ -168,11 +168,11 @@ export default function Chatbot() {
               <div className="flex items-center gap-3">
                 <Avatar>
                   <AvatarImage src="/placeholder.svg?height=40&width=40" alt="Bot Avatar" />
-                  <AvatarFallback>RM</AvatarFallback>
+                  <AvatarFallback>VM</AvatarFallback>
                 </Avatar>
                 <div>
-                  <h3 className="font-medium">Ram's Assistant</h3>
-                  <p className="text-xs text-muted-foreground">Ask me anything about Ram's portfolio</p>
+                  <h3 className="font-medium">Vaibhav's Assistant</h3>
+                  <p className="text-xs text-muted-foreground">Ask me anything about Vaibhav's portfolio</p>
                 </div>
               </div>
               <Button variant="ghost" size="icon" onClick={() => setIsOpen(false)}>

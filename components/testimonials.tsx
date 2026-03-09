@@ -13,7 +13,7 @@ const testimonials = [
   {
     id: 1,
     content:
-      "Ram is an exceptional developer who delivered our project ahead of schedule. His attention to detail and problem-solving skills are impressive. I highly recommend him for any web development project.",
+      "Vaibhav is an exceptional developer who delivered our project ahead of schedule. His attention to detail and problem-solving skills are impressive. I highly recommend him for any web development project.",
     name: "Sarah Johnson",
     position: "CTO, TechInnovate",
     image: "/placeholder.svg?height=100&width=100",
@@ -21,7 +21,7 @@ const testimonials = [
   {
     id: 2,
     content:
-      "Working with Ram was a fantastic experience. He understood our requirements perfectly and created a solution that exceeded our expectations. His technical expertise and communication skills made the project run smoothly.",
+      "Working with Vaibhav was a fantastic experience. He understood our requirements perfectly and created a solution that exceeded our expectations. His technical expertise and communication skills made the project run smoothly.",
     name: "Michael Chen",
     position: "Founder, DataViz Solutions",
     image: "/placeholder.svg?height=100&width=100",
@@ -29,7 +29,7 @@ const testimonials = [
   {
     id: 3,
     content:
-      "Ram transformed our outdated website into a modern, responsive platform that has significantly increased our user engagement. His creative approach and technical skills are truly outstanding.",
+      "Vaibhav transformed our outdated website into a modern, responsive platform that has significantly increased our user engagement. His creative approach and technical skills are truly outstanding.",
     name: "Priya Patel",
     position: "Marketing Director, GrowthHub",
     image: "/placeholder.svg?height=100&width=100",
@@ -37,7 +37,7 @@ const testimonials = [
   {
     id: 4,
     content:
-      "I've worked with many developers, but Ram stands out for his ability to translate complex requirements into elegant solutions. He's not just a coder, but a true problem solver who thinks about the business impact of his work.",
+      "I've worked with many developers, but Vaibhav stands out for his ability to translate complex requirements into elegant solutions. He's not just a coder, but a true problem solver who thinks about the business impact of his work.",
     name: "David Wilson",
     position: "Product Manager, InnovateTech",
     image: "/placeholder.svg?height=100&width=100",
