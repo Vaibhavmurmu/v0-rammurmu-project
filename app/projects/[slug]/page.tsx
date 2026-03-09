@@ -24,7 +24,7 @@ const projects = [
     tags: ["React", "Node.js", "MongoDB", "Chart.js"],
     categories: ["Web App", "Full Stack", "Healthcare"],
     liveUrl: "https://healthtrack-pro.example.com",
-    githubUrl: "https://github.com/rammurmu/healthtrack-pro",
+    githubUrl: "https://github.com/vaibhavmurmu/healthtrack-pro",
     slug: "healthtrack-pro",
     featured: true,
     challenge:
@@ -63,7 +63,7 @@ const projects = [
     tags: ["Next.js", "Stripe", "PostgreSQL", "Tailwind CSS"],
     categories: ["E-commerce", "Full Stack", "Web App"],
     liveUrl: "https://ecoshop.example.com",
-    githubUrl: "https://github.com/rammurmu/ecoshop",
+    githubUrl: "https://github.com/vaibhavmurmu/ecoshop",
     slug: "ecoshop",
     featured: true,
     challenge:

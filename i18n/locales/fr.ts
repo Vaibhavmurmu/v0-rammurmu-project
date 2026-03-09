@@ -1,7 +1,7 @@
 export const fr = {
-  "meta.title": "Ram Murmu | Portfolio Personnel",
+  "meta.title": "Vaibhav Murmu | Cofondateur, CFO et Développeur",
   "meta.description":
-    "Site web de portfolio personnel de Ram Murmu, un développeur full-stack spécialisé dans les technologies web modernes.",
+    "Portfolio personnel de Vaibhav Murmu, Cofondateur, CFO et Développeur qui crée des produits numériques modernes.",
 
   "nav.home": "Accueil",
   "nav.about": "À Propos",
@@ -12,15 +12,15 @@ export const fr = {
 
   "hero.greeting": "Bonjour, je suis",
   "hero.role":
-    "Développeur full-stack spécialisé dans les technologies web modernes et la création d'expériences numériques exceptionnelles.",
+    "Cofondateur, CFO et Développeur, axé sur les technologies web modernes et des expériences numériques utiles.",
   "hero.contact": "Me Contacter",
   "hero.download": "Télécharger CV",
 
   "about.title": "À Propos de Moi",
   "about.description1":
-    "Je suis un développeur passionné avec une expertise dans la création d'applications web modernes. Avec une solide base en technologies frontend et backend, je crée des expériences fluides et conviviales qui résolvent des problèmes concrets.",
+    "Je suis Vaibhav Murmu, Cofondateur, CFO et Développeur, avec une expérience concrète dans la création de produits web modernes orientés utilisateur.",
   "about.description2":
-    "Mon parcours dans la technologie a commencé il y a 5 ans et, depuis lors, j'ai travaillé sur divers projets allant des plateformes e-commerce aux solutions d'entreprise complexes. J'apprends et m'adapte constamment aux nouvelles technologies pour rester à la pointe du développement web.",
+    "Je combine leadership business et exécution technique pour piloter la stratégie, la finance et le développement de solutions évolutives.",
   "about.education": "Éducation",
   "about.experience": "Expérience",
   "about.interests": "Intérêts",

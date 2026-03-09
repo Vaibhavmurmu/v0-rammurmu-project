@@ -46,7 +46,7 @@ export default function ResumePage() {
               <span className="ml-2 text-xs text-muted-foreground">(Ctrl+P)</span>
             </Button>
             <Button asChild className="group">
-              <a href="/Ram_Murmu_Resume.pdf" download="Ram_Murmu_Resume.pdf">
+              <a href="/Vaibhav_Murmu_Resume.pdf" download="Vaibhav_Murmu_Resume.pdf">
                 <Download className="mr-2 h-4 w-4 group-hover:translate-y-[-2px] transition-transform" /> Download PDF
               </a>
             </Button>
@@ -67,12 +67,12 @@ export default function ResumePage() {
             <div className="flex-1 text-center md:text-left">
               <h1 className="text-3xl font-bold mb-2 print:text-2xl">Vaibhav Murmu</h1>
               <p className="text-xl text-primary mb-4 print:text-lg print:mb-2 print:text-black">
-                Co-founder & CFO | Technical Product Leader
+                Co-founder & CFO and Developer
               </p>
               <div className="flex flex-wrap gap-4 justify-center md:justify-start print:text-sm">
                 <div className="flex items-center gap-1">
                   <Mail className="h-4 w-4 text-muted-foreground print:text-black" />
-                  <span>vaibhav@rammurmu.com</span>
+                  <span>vaibhav.murmu@example.com</span>
                 </div>
                 <div className="flex items-center gap-1">
                   <Phone className="h-4 w-4 text-muted-foreground print:text-black" />
@@ -84,7 +84,7 @@ export default function ResumePage() {
                 </div>
                 <div className="flex items-center gap-1">
                   <Globe className="h-4 w-4 text-muted-foreground print:text-black" />
-                  <span>rammurmu.com</span>
+                  <span>vaibhavmurmu.com</span>
                 </div>
               </div>
             </div>
@@ -96,9 +96,9 @@ export default function ResumePage() {
               Professional Summary
             </h2>
             <p className="text-muted-foreground print:text-black">
-              Founder-operator with experience spanning startup finance, product strategy, and engineering execution.
-              As Co-founder & CFO, I lead fundraising readiness, financial planning, and business operations while
-              remaining hands-on in product development, systems design, and delivery leadership.
+              Co-founder & CFO and Developer with 5+ years of experience building modern digital products and technology-led businesses. Proficient in
+              React, Next.js, Node.js, and cloud services. Passionate about creating scalable, user-friendly applications while aligning technology delivery with strategic financial outcomes. Strong problem-solving skills and experience
+              working in collaborative, agile environments.
             </p>
           </div>
 
@@ -164,7 +164,7 @@ export default function ResumePage() {
                 <div className="flex items-start justify-between mb-1">
                   <div className="flex items-center gap-2">
                     <Briefcase className="h-4 w-4 text-primary print:text-black" />
-                    <h3 className="font-semibold">Head of Engineering</h3>
+                    <h3 className="font-semibold">Co-founder & CFO and Developer</h3>
                   </div>
                   <span className="text-sm text-muted-foreground print:text-black">2019 - 2022</span>
                 </div>
