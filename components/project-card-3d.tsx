@@ -17,7 +17,7 @@ interface ProjectCardProps {
     description: string
     image: string
     tags: string[]
-    liveUrl: string
+    liveUrl?: string
     githubUrl: string
     slug: string
   }
@@ -173,12 +173,14 @@ export default function ProjectCard3D({ project, priority = false }: ProjectCard
             <Button asChild variant="default" size="sm">
               <Link href={`/projects/${project.slug}`}>View Details</Link>
             </Button>
-            <Button asChild variant="outline" size="sm" className="group">
-              <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                <ExternalLink className="h-4 w-4 mr-1 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                Demo
-              </a>
-            </Button>
+            {project.liveUrl && (
+              <Button asChild variant="outline" size="sm" className="group">
+                <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                  <ExternalLink className="h-4 w-4 mr-1 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  Demo
+                </a>
+              </Button>
+            )}
             <Button asChild variant="ghost" size="sm" className="group">
               <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
                 <Github className="h-4 w-4 mr-1 group-hover:scale-110 transition-transform" />

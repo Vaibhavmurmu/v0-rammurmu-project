@@ -11,39 +11,9 @@ import { motion, AnimatePresence } from "framer-motion"
 import { useLanguage } from "@/context/language-context"
 import { Badge } from "@/components/ui/badge"
 
-const projects = [
-  {
-    id: 1,
-    title: "HealthTrack Pro",
-    description: "A comprehensive health tracking application with personalized insights and analytics dashboard.",
-    image: "/placeholder.svg?height=600&width=1200",
-    tags: ["React", "Node.js", "MongoDB", "Chart.js"],
-    liveUrl: "https://healthtrack-pro.example.com",
-    githubUrl: "https://github.com/rammurmu/healthtrack-pro",
-    slug: "healthtrack-pro",
-  },
-  {
-    id: 2,
-    title: "EcoShop",
-    description:
-      "An e-commerce platform focused on eco-friendly products with integrated payment processing and inventory management.",
-    image: "/placeholder.svg?height=600&width=1200",
-    tags: ["Next.js", "Stripe", "PostgreSQL", "Tailwind CSS"],
-    liveUrl: "https://ecoshop.example.com",
-    githubUrl: "https://github.com/rammurmu/ecoshop",
-    slug: "ecoshop",
-  },
-  {
-    id: 3,
-    title: "DevConnect",
-    description: "A social platform for developers to share projects, collaborate, and find job opportunities.",
-    image: "/placeholder.svg?height=600&width=1200",
-    tags: ["React", "Firebase", "Redux", "Material UI"],
-    liveUrl: "https://devconnect.example.com",
-    githubUrl: "https://github.com/rammurmu/devconnect",
-    slug: "devconnect",
-  },
-]
+import { projectsData } from "@/lib/projects-data"
+
+const projects = projectsData.filter((project) => project.featured).slice(0, 3)
 
 export default function ProjectCarousel() {
   const { t } = useLanguage()
@@ -165,11 +135,13 @@ export default function ProjectCarousel() {
                   <Button asChild>
                     <Link href={`/projects/${projects[current].slug}`}>View Details</Link>
                   </Button>
-                  <Button asChild variant="outline">
-                    <a href={projects[current].liveUrl} target="_blank" rel="noopener noreferrer">
-                      <ExternalLink className="mr-2 h-4 w-4" /> Live Demo
-                    </a>
-                  </Button>
+                  {projects[current].liveUrl && (
+                    <Button asChild variant="outline">
+                      <a href={projects[current].liveUrl} target="_blank" rel="noopener noreferrer">
+                        <ExternalLink className="mr-2 h-4 w-4" /> Live Demo
+                      </a>
+                    </Button>
+                  )}
                   <Button asChild variant="ghost">
                     <a href={projects[current].githubUrl} target="_blank" rel="noopener noreferrer">
                       <Github className="mr-2 h-4 w-4" /> Code

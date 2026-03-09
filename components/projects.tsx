@@ -8,77 +8,9 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Badge } from "@/components/ui/badge"
 import ProjectCard3D from "./project-card-3d"
 
-const projects = [
-  {
-    id: 1,
-    title: "HealthTrack Pro",
-    description: "A comprehensive health tracking application with personalized insights and analytics dashboard.",
-    image: "/placeholder.svg?height=400&width=600",
-    tags: ["React", "Node.js", "MongoDB", "Chart.js"],
-    liveUrl: "https://healthtrack-pro.example.com",
-    githubUrl: "https://github.com/rammurmu/healthtrack-pro",
-    slug: "healthtrack-pro",
-    featured: true,
-  },
-  {
-    id: 2,
-    title: "EcoShop",
-    description:
-      "An e-commerce platform focused on eco-friendly products with integrated payment processing and inventory management.",
-    image: "/placeholder.svg?height=400&width=600",
-    tags: ["Next.js", "Stripe", "PostgreSQL", "Tailwind CSS"],
-    liveUrl: "https://ecoshop.example.com",
-    githubUrl: "https://github.com/rammurmu/ecoshop",
-    slug: "ecoshop",
-    featured: true,
-  },
-  {
-    id: 3,
-    title: "DevConnect",
-    description: "A social platform for developers to share projects, collaborate, and find job opportunities.",
-    image: "/placeholder.svg?height=400&width=600",
-    tags: ["React", "Firebase", "Redux", "Material UI"],
-    liveUrl: "https://devconnect.example.com",
-    githubUrl: "https://github.com/rammurmu/devconnect",
-    slug: "devconnect",
-    featured: true,
-  },
-  {
-    id: 4,
-    title: "SmartHome Hub",
-    description: "IoT dashboard for controlling and monitoring smart home devices with real-time updates.",
-    image: "/placeholder.svg?height=400&width=600",
-    tags: ["Vue.js", "Express", "Socket.io", "MongoDB"],
-    liveUrl: "https://smarthome-hub.example.com",
-    githubUrl: "https://github.com/rammurmu/smarthome-hub",
-    slug: "smarthome-hub",
-    featured: false,
-  },
-  {
-    id: 5,
-    title: "TravelBuddy",
-    description:
-      "Travel planning application with itinerary management, expense tracking, and location recommendations.",
-    image: "/placeholder.svg?height=400&width=600",
-    tags: ["React Native", "GraphQL", "AWS", "MapBox"],
-    liveUrl: "https://travelbuddy.example.com",
-    githubUrl: "https://github.com/rammurmu/travelbuddy",
-    slug: "travelbuddy",
-    featured: false,
-  },
-  {
-    id: 6,
-    title: "CodeReview AI",
-    description:
-      "AI-powered code review tool that provides suggestions and identifies potential bugs and security issues.",
-    image: "/placeholder.svg?height=400&width=600",
-    tags: ["Python", "TensorFlow", "FastAPI", "Docker"],
-    liveUrl: "https://codereview-ai.example.com",
-    githubUrl: "https://github.com/rammurmu/codereview-ai",
-    slug: "codereview-ai",
-    featured: false,
-  },
-]
+import { projectsData } from "@/lib/projects-data"
+
+const projects = projectsData
 
 // Extract all unique tags
 const allTags = Array.from(new Set(projects.flatMap((project) => project.tags)))
