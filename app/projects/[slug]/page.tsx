@@ -128,11 +128,13 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
               </div>
 
               <div className="flex gap-4 mb-8">
-                <Button asChild>
-                  <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                    <ExternalLink className="mr-2 h-4 w-4" /> Live Demo
-                  </a>
-                </Button>
+                {project.liveUrl && (
+                  <Button asChild>
+                    <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                      <ExternalLink className="mr-2 h-4 w-4" /> Live Demo
+                    </a>
+                  </Button>
+                )}
                 <Button asChild variant="outline">
                   <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
                     <Github className="mr-2 h-4 w-4" /> View Code
@@ -225,12 +227,12 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
 
             <div className="mb-8">
               <h3 className="text-xl font-semibold mb-3">The Challenge</h3>
-              <p className="text-muted-foreground">{project.challenge}</p>
+              <p className="text-muted-foreground">{project.challenge ?? "Challenge details coming soon."}</p>
             </div>
 
             <div className="mb-8">
               <h3 className="text-xl font-semibold mb-3">The Solution</h3>
-              <p className="text-muted-foreground">{project.solution}</p>
+              <p className="text-muted-foreground">{project.solution ?? "Solution details coming soon."}</p>
             </div>
 
             <div className="mb-8">
@@ -301,7 +303,7 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
 
             <div>
               <h3 className="text-xl font-semibold mb-3">Outcome</h3>
-              <p className="text-muted-foreground">{project.outcome}</p>
+              <p className="text-muted-foreground">{project.outcome ?? "Outcome details coming soon."}</p>
             </div>
           </motion.div>
 
