@@ -52,9 +52,9 @@ function FloatingName() {
         bevelSize={0.02}
         bevelOffset={0}
         bevelSegments={5}
-        position={[-1.75, 0, 0]}
+        position={[-2.35, 0, 0]}
       >
-        RAM MURMU
+        VAIBHAV MURMU
         {material && <primitive object={material} attach="material" />}
       </Text3D>
     </Float>
@@ -64,8 +64,8 @@ function FloatingName() {
 // Loading fallback component
 function LoadingText() {
   return (
-    <Text3D font="/fonts/Inter_Bold.json" size={0.5} height={0.1} position={[-1.75, 0, 0]}>
-      RAM MURMU
+    <Text3D font="/fonts/Inter_Bold.json" size={0.5} height={0.1} position={[-2.35, 0, 0]}>
+      VAIBHAV MURMU
       <meshStandardMaterial color="#888888" />
     </Text3D>
   )

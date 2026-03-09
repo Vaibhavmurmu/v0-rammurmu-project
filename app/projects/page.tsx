@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button"
 import { motion, AnimatePresence } from "framer-motion"
 import AdvancedFilter from "@/components/advanced-filter"
 import ProjectCard3D from "@/components/project-card-3d"
+import { projectsData } from "@/lib/projects-data"
 
 const projects = [
   {

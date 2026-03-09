@@ -7,6 +7,7 @@ import { notFound } from "next/navigation"
 import { ArrowLeft, ExternalLink, Github, CheckCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
+import { projectsData } from "@/lib/projects-data"
 
 const projects = [
   {
