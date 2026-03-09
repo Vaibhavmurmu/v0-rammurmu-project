@@ -23,11 +23,7 @@ export type Project = {
   outcome?: string
 }
 
-const placeholderScreenshots = [
-  "/placeholder.svg?height=600&width=800",
-  "/placeholder.svg?height=600&width=800",
-  "/placeholder.svg?height=600&width=800",
-]
+const projectScreenshots = ["/runash-logo.jpeg", "/rammurmu.jpg", "/placeholder.jpg"]
 
 export const projectsData: Project[] = [
   {
@@ -36,8 +32,8 @@ export const projectsData: Project[] = [
     description: "A comprehensive health tracking application with personalized insights and analytics dashboard.",
     longDescription:
       "HealthTrack Pro is a full-stack application designed to help users monitor their health metrics, set goals, and track progress over time. The application features a personalized dashboard with data visualization, goal setting and tracking, custom workout plans, and nutrition tracking.",
-    image: "/placeholder.svg?height=400&width=600",
-    screenshots: placeholderScreenshots,
+    image: "/runash-logo.jpeg",
+    screenshots: projectScreenshots,
     tags: ["React", "Node.js", "MongoDB", "Chart.js"],
     categories: ["Web App", "Full Stack", "Healthcare"],
     githubUrl: "https://github.com/vaibhavmurmu/healthtrack-pro",
@@ -70,8 +66,8 @@ export const projectsData: Project[] = [
       "An e-commerce platform focused on eco-friendly products with integrated payment processing and inventory management.",
     longDescription:
       "EcoShop is a modern e-commerce platform specializing in eco-friendly and sustainable products. The application includes features like product catalog with filtering and search, shopping cart and checkout process, payment processing with Stripe, order management, and an admin dashboard for inventory management.",
-    image: "/placeholder.svg?height=400&width=600",
-    screenshots: placeholderScreenshots,
+    image: "/rammurmu.jpg",
+    screenshots: projectScreenshots,
     tags: ["Next.js", "Stripe", "PostgreSQL", "Tailwind CSS"],
     categories: ["E-commerce", "Full Stack", "Web App"],
     githubUrl: "https://github.com/vaibhavmurmu/ecoshop",
@@ -105,8 +101,8 @@ export const projectsData: Project[] = [
     description: "A social platform for developers to share projects, collaborate, and find job opportunities.",
     longDescription:
       "DevConnect is a social networking platform designed specifically for developers to showcase their work, collaborate on projects, and find job opportunities. The platform includes user profiles with portfolio showcases, project sharing and collaboration tools, job board with filtering options, and real-time messaging.",
-    image: "/placeholder.svg?height=400&width=600",
-    screenshots: placeholderScreenshots,
+    image: "/placeholder.jpg",
+    screenshots: projectScreenshots,
     tags: ["React", "Firebase", "Redux", "Material UI"],
     categories: ["Web App", "Full Stack", "Social Network"],
     githubUrl: "https://github.com/vaibhavmurmu/devconnect",
@@ -119,8 +115,8 @@ export const projectsData: Project[] = [
     description: "IoT dashboard for controlling and monitoring smart home devices with real-time updates.",
     longDescription:
       "SmartHome Hub is a centralized dashboard for managing and monitoring IoT devices in a smart home environment. The application features device control panels, automation rules and scheduling, energy usage monitoring, and real-time notifications and alerts.",
-    image: "/placeholder.svg?height=400&width=600",
-    screenshots: placeholderScreenshots,
+    image: "/placeholder-user.jpg",
+    screenshots: projectScreenshots,
     tags: ["Vue.js", "Express", "Socket.io", "MongoDB"],
     categories: ["Web App", "IoT", "Dashboard"],
     githubUrl: "https://github.com/vaibhavmurmu/smarthome-hub",
@@ -133,8 +129,8 @@ export const projectsData: Project[] = [
     description: "Travel planning application with itinerary management, expense tracking, and location recommendations.",
     longDescription:
       "TravelBuddy is a comprehensive travel planning application designed to help users plan trips, manage itineraries, track expenses, and discover new destinations. The app includes trip planning and itinerary management, interactive maps with points of interest, expense tracking and budgeting, and AI-powered destination recommendations.",
-    image: "/placeholder.svg?height=400&width=600",
-    screenshots: placeholderScreenshots,
+    image: "/placeholder.jpg",
+    screenshots: projectScreenshots,
     tags: ["React Native", "GraphQL", "AWS", "MapBox"],
     categories: ["Mobile App", "Travel", "Full Stack"],
     githubUrl: "https://github.com/vaibhavmurmu/travelbuddy",
@@ -147,8 +143,8 @@ export const projectsData: Project[] = [
     description: "AI-powered code review tool that provides suggestions and identifies potential bugs and security issues.",
     longDescription:
       "CodeReview AI is an intelligent code analysis tool that leverages machine learning to provide automated code reviews, identify potential bugs, and suggest improvements. The tool features automated code quality analysis, security vulnerability detection, performance optimization suggestions, and integration with popular version control systems.",
-    image: "/placeholder.svg?height=400&width=600",
-    screenshots: placeholderScreenshots,
+    image: "/placeholder.jpg",
+    screenshots: projectScreenshots,
     tags: ["Python", "TensorFlow", "FastAPI", "Docker"],
     categories: ["AI", "Developer Tool", "Web App"],
     githubUrl: "https://github.com/vaibhavmurmu/codereview-ai",
@@ -162,8 +158,8 @@ export const projectsData: Project[] = [
       "Personal finance management application with budgeting tools, expense tracking, and financial insights.",
     longDescription:
       "FinTrack is a comprehensive personal finance management application that helps users track expenses, create budgets, and gain insights into their spending habits. The application includes expense tracking and categorization, budget creation and monitoring, financial goal setting, and data visualization for spending analysis.",
-    image: "/placeholder.svg?height=400&width=600",
-    screenshots: placeholderScreenshots,
+    image: "/placeholder.jpg",
+    screenshots: projectScreenshots,
     tags: ["React", "Node.js", "PostgreSQL", "D3.js"],
     categories: ["Web App", "Finance", "Full Stack"],
     githubUrl: "https://github.com/vaibhavmurmu/fintrack",
@@ -176,8 +172,8 @@ export const projectsData: Project[] = [
     description: "AI-powered legal document analysis and generation tool for legal professionals.",
     longDescription:
       "LegalDoc AI is an intelligent document analysis and generation tool designed specifically for legal professionals. The application uses natural language processing to analyze legal documents, extract key information, and generate standardized legal documents based on user inputs.",
-    image: "/placeholder.svg?height=400&width=600",
-    screenshots: placeholderScreenshots,
+    image: "/placeholder.jpg",
+    screenshots: projectScreenshots,
     tags: ["Python", "NLP", "Django", "React"],
     categories: ["AI", "Legal Tech", "Web App"],
     githubUrl: "https://github.com/vaibhavmurmu/legaldoc-ai",
