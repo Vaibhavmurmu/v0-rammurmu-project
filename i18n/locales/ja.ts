@@ -1,6 +1,6 @@
 export const ja = {
-  "meta.title": "ラム・ムルム | 個人ポートフォリオ",
-  "meta.description": "最新のウェブ技術を専門とするフルスタック開発者、ラム・ムルムの個人ポートフォリオウェブサイト。",
+  "meta.title": "Vaibhav Murmu | Co-founder & CFO・Developer",
+  "meta.description": "Vaibhav Murmuのポートフォリオ。Co-founder & CFOとして、Developerとして、現代的なデジタルプロダクトを構築します。",
 
   "nav.home": "ホーム",
   "nav.about": "プロフィール",
@@ -10,15 +10,15 @@ export const ja = {
   "nav.contact": "お問い合わせ",
 
   "hero.greeting": "こんにちは、私は",
-  "hero.role": "最新のウェブ技術と優れたデジタル体験の創造を専門とするフルスタック開発者です。",
+  "hero.role": "Co-founder & CFO 兼 Developerとして、モダンなWeb技術と価値あるデジタル体験の実現に注力しています。",
   "hero.contact": "お問い合わせ",
   "hero.download": "履歴書をダウンロード",
 
   "about.title": "プロフィール",
   "about.description1":
-    "私は最新のウェブアプリケーションの構築に専門知識を持つ情熱的な開発者です。フロントエンドとバックエンドの技術に強固な基盤を持ち、実世界の問題を解決するシームレスで使いやすい体験を作り出します。",
+    "私はVaibhav Murmu。Co-founder & CFOでありDeveloperとして、ユーザー中心のモダンなWebプロダクト開発をリードしています。",
   "about.description2":
-    "テクノロジーの旅は5年前に始まり、それ以来、eコマースプラットフォームから複雑な企業ソリューションまで、さまざまなプロジェクトに取り組んできました。ウェブ開発の最前線に立ち続けるために、常に新しい技術を学び、適応しています。",
+    "事業戦略・財務・開発を横断して推進し、スケーラブルで実用的なソリューションを届けます。",
   "about.education": "学歴",
   "about.experience": "経験",
   "about.interests": "興味",
