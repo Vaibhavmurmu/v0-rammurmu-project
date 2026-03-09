@@ -45,6 +45,11 @@ export default function ResumePage() {
               <Printer className="mr-2 h-4 w-4 group-hover:scale-110 transition-transform" /> Print Resume
               <span className="ml-2 text-xs text-muted-foreground">(Ctrl+P)</span>
             </Button>
+            <Button asChild className="group">
+              <Link href="/resume">
+                <Download className="mr-2 h-4 w-4 group-hover:translate-y-[-2px] transition-transform" /> Open Resume
+              </Link>
+            </Button>
           </div>
         </div>
 
