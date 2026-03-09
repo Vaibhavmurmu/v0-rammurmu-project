@@ -8,9 +8,88 @@ import { ArrowLeft, ExternalLink, Github, CheckCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
 
-import { projectsData } from "@/lib/projects-data"
-
-const projects = projectsData
+const projects = [
+  {
+    id: 1,
+    title: "HealthTrack Pro",
+    description: "A comprehensive health tracking application with personalized insights and analytics dashboard.",
+    longDescription:
+      "HealthTrack Pro is a full-stack application designed to help users monitor their health metrics, set goals, and track progress over time. The application features a personalized dashboard with data visualization, goal setting and tracking, custom workout plans, and nutrition tracking.",
+    image: "/placeholder.svg?height=400&width=600",
+    screenshots: [
+      "/placeholder.svg?height=600&width=800",
+      "/placeholder.svg?height=600&width=800",
+      "/placeholder.svg?height=600&width=800",
+    ],
+    tags: ["React", "Node.js", "MongoDB", "Chart.js"],
+    categories: ["Web App", "Full Stack", "Healthcare"],
+    liveUrl: "https://healthtrack-pro.example.com",
+    githubUrl: "https://github.com/vaibhavmurmu/healthtrack-pro",
+    slug: "healthtrack-pro",
+    featured: true,
+    challenge:
+      "The main challenge was to create an intuitive interface for tracking various health metrics while providing meaningful insights and visualizations that help users understand their progress and make informed decisions about their health.",
+    solution:
+      "I developed a modular architecture with a React frontend and Node.js backend, using MongoDB for flexible data storage. The application uses Chart.js for data visualization and implements a responsive design for seamless use across devices.",
+    features: [
+      "Personalized dashboard with health metrics overview",
+      "Goal setting and progress tracking",
+      "Custom workout plan generation",
+      "Nutrition tracking and meal planning",
+      "Data visualization with interactive charts",
+      "Reminder system for medications and activities",
+    ],
+    technologies: {
+      frontend: ["React", "Redux", "Chart.js", "Tailwind CSS"],
+      backend: ["Node.js", "Express", "MongoDB", "JWT Authentication"],
+      devops: ["Docker", "GitHub Actions", "AWS"],
+    },
+    outcome:
+      "The application has helped users improve their health metrics by providing clear insights and actionable recommendations. The intuitive interface and comprehensive tracking features have received positive feedback from users and healthcare professionals.",
+  },
+  {
+    id: 2,
+    title: "EcoShop",
+    description:
+      "An e-commerce platform focused on eco-friendly products with integrated payment processing and inventory management.",
+    longDescription:
+      "EcoShop is a modern e-commerce platform specializing in eco-friendly and sustainable products. The application includes features like product catalog with filtering and search, shopping cart and checkout process, payment processing with Stripe, order management, and an admin dashboard for inventory management.",
+    image: "/placeholder.svg?height=400&width=600",
+    screenshots: [
+      "/placeholder.svg?height=600&width=800",
+      "/placeholder.svg?height=600&width=800",
+      "/placeholder.svg?height=600&width=800",
+    ],
+    tags: ["Next.js", "Stripe", "PostgreSQL", "Tailwind CSS"],
+    categories: ["E-commerce", "Full Stack", "Web App"],
+    liveUrl: "https://ecoshop.example.com",
+    githubUrl: "https://github.com/vaibhavmurmu/ecoshop",
+    slug: "ecoshop",
+    featured: true,
+    challenge:
+      "The challenge was to create a seamless shopping experience that highlights the eco-friendly aspects of products while providing robust e-commerce functionality including inventory management, secure payments, and order processing.",
+    solution:
+      "I built the platform using Next.js for server-side rendering and SEO optimization, integrated Stripe for secure payment processing, and implemented a PostgreSQL database for reliable data storage. The admin dashboard provides comprehensive inventory and order management tools.",
+    features: [
+      "Product catalog with advanced filtering and search",
+      "Shopping cart and secure checkout process",
+      "Payment processing with Stripe",
+      "Order tracking and management",
+      "Admin dashboard for inventory management",
+      "Customer account management",
+      "Product reviews and ratings",
+    ],
+    technologies: {
+      frontend: ["Next.js", "React", "Tailwind CSS", "SWR"],
+      backend: ["Node.js", "Express", "PostgreSQL", "Prisma ORM"],
+      payment: ["Stripe API", "PayPal Integration"],
+      devops: ["Vercel", "GitHub Actions"],
+    },
+    outcome:
+      "The platform has successfully showcased eco-friendly products to a wider audience, with a conversion rate 15% higher than industry average. The intuitive interface and smooth checkout process have contributed to positive customer feedback and repeat purchases.",
+  },
+  // Add more projects with detailed information...
+]
 
 export default function ProjectDetailPage({ params }: { params: { slug: string } }) {
   const [mounted, setMounted] = useState(false)
