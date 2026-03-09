@@ -46,9 +46,9 @@ export default function ResumePage() {
               <span className="ml-2 text-xs text-muted-foreground">(Ctrl+P)</span>
             </Button>
             <Button asChild className="group">
-              <a href="/Vaibhav_Murmu_Resume.pdf" download="Vaibhav_Murmu_Resume.pdf">
-                <Download className="mr-2 h-4 w-4 group-hover:translate-y-[-2px] transition-transform" /> Download PDF
-              </a>
+              <Link href="/resume">
+                <Download className="mr-2 h-4 w-4 group-hover:translate-y-[-2px] transition-transform" /> Open Resume
+              </Link>
             </Button>
           </div>
         </div>
@@ -62,7 +62,7 @@ export default function ResumePage() {
           {/* Resume Header */}
           <div className="flex flex-col md:flex-row gap-6 mb-8 print:mb-6">
             <div className="relative w-32 h-32 rounded-full overflow-hidden border-4 border-background shadow-xl mx-auto md:mx-0 print:border-none print:shadow-none">
-              <Image src="/placeholder.svg?height=128&width=128" alt="Vaibhav Murmu" fill className="object-cover" />
+              <Image src="/rammurmu.jpg" alt="Vaibhav Murmu" fill className="object-cover" />
             </div>
             <div className="flex-1 text-center md:text-left">
               <h1 className="text-3xl font-bold mb-2 print:text-2xl">Vaibhav Murmu</h1>
@@ -72,7 +72,7 @@ export default function ResumePage() {
               <div className="flex flex-wrap gap-4 justify-center md:justify-start print:text-sm">
                 <div className="flex items-center gap-1">
                   <Mail className="h-4 w-4 text-muted-foreground print:text-black" />
-                  <span>vaibhav.murmu@example.com</span>
+                  <span>hello@vaibhavmurmu.com</span>
                 </div>
                 <div className="flex items-center gap-1">
                   <Phone className="h-4 w-4 text-muted-foreground print:text-black" />
