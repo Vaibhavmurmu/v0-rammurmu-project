@@ -12,8 +12,9 @@ import ThemeCustomizer from "@/components/theme-customizer"
 const navItems = [
   { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
-  //{ name: "Skills", href: "#skills" },
-  //{ name: "Projects", href: "#projects" },
+  { name: "Skills", href: "#skills" },
+  { name: "Projects", href: "#projects" },
+  { name: "Timeline", href: "#timeline" },
   { name: "Blog", href: "#blog" },
   { name: "Contact", href: "#contact" },
 ]
