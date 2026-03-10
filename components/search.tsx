@@ -7,62 +7,25 @@ import { Button } from "@/components/ui/button"
 import { motion, AnimatePresence } from "framer-motion"
 import { useRouter } from "next/navigation"
 import { useClickAway } from "@/hooks/use-click-away"
+import { blogPostsData } from "@/lib/blog-data"
+import { projectsData } from "@/lib/projects-data"
 
-// Sample data for search
-const blogPosts = [
-  {
-    id: 1,
-    title: "Building Scalable React Applications with Next.js",
-    excerpt:
-      "Learn how to leverage Next.js features to build performant and scalable React applications that can handle growth.",
-    date: "May 15, 2023",
-    slug: "building-scalable-react-applications",
-    type: "blog",
-  },
-  {
-    id: 2,
-    title: "The Future of Web Development: AI Integration",
-    excerpt:
-      "Explore how artificial intelligence is transforming web development and how developers can stay ahead of the curve.",
-    date: "June 22, 2023",
-    slug: "future-of-web-development-ai",
-    type: "blog",
-  },
-  {
-    id: 3,
-    title: "Optimizing Database Performance in Modern Applications",
-    excerpt:
-      "Practical strategies for improving database performance and query optimization in high-traffic web applications.",
-    date: "July 10, 2023",
-    slug: "optimizing-database-performance",
-    type: "blog",
-  },
-]
+const blogPosts = blogPostsData.map((post) => ({
+  id: post.id,
+  title: post.title,
+  excerpt: post.excerpt,
+  date: post.date,
+  slug: post.slug,
+  type: "blog" as const,
+}))
 
-const projects = [
-  {
-    id: 1,
-    title: "HealthTrack Pro",
-    description: "A comprehensive health tracking application with personalized insights and analytics dashboard.",
-    slug: "healthtrack-pro",
-    type: "project",
-  },
-  {
-    id: 2,
-    title: "EcoShop",
-    description:
-      "An e-commerce platform focused on eco-friendly products with integrated payment processing and inventory management.",
-    slug: "ecoshop",
-    type: "project",
-  },
-  {
-    id: 3,
-    title: "DevConnect",
-    description: "A social platform for developers to share projects, collaborate, and find job opportunities.",
-    slug: "devconnect",
-    type: "project",
-  },
-]
+const projects = projectsData.map((project) => ({
+  id: project.id,
+  title: project.title,
+  description: project.description,
+  slug: project.slug,
+  type: "project" as const,
+}))
 
 // Combine all searchable content
 const searchableContent = [...blogPosts, ...projects]

@@ -8,6 +8,7 @@ import { SectionTitle, FadeIn } from "./motion-wrapper"
 import { motion, AnimatePresence } from "framer-motion"
 import TestimonialForm from "./testimonial-form"
 import { useLanguage } from "@/context/language-context"
+import { testimonialsData } from "@/lib/testimonials-data"
 
 const testimonials = [
   {
