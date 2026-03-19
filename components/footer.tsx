@@ -16,9 +16,7 @@ export default function Footer() {
             <Link href="#home" className="text-2xl font-bold">
               Vaibhav<span className="text-primary">Murmu</span>
             </Link>
-            <p className="text-muted-foreground mt-2 max-w-md">
-              vmurmu
-            </p>
+            
           </div>
 
           <div className="flex gap-4">
