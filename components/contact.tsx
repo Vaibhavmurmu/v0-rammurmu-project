@@ -88,7 +88,7 @@ export default function Contact() {
               </div>
               <div>
                 <h3 className="text-lg font-semibold mb-1">{t("contact.location")}</h3>
-                <p className="text-muted-foreground">Bangalore, India</p>
+                <p className="text-muted-foreground">RunAsh AI Avenue, India</p>
               </div>
             </div>
 
@@ -98,7 +98,7 @@ export default function Contact() {
               </div>
               <div>
                 <h3 className="text-lg font-semibold mb-1">{t("contact.email")}</h3>
-                <p className="text-muted-foreground">ram.murmu@example.com</p>
+                <p className="text-muted-foreground">vaibhavmurmu@runash.in</p>
               </div>
             </div>
 
@@ -108,7 +108,7 @@ export default function Contact() {
               </div>
               <div>
                 <h3 className="text-lg font-semibold mb-1">{t("contact.phone")}</h3>
-                <p className="text-muted-foreground">+91 98765 43210</p>
+                <p className="text-muted-foreground">+91 9534659307</p>
               </div>
             </div>
           </SlideIn>
