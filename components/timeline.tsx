@@ -9,9 +9,9 @@ const timelineItems = [
   {
     id: 1,
     title: "Senior Frontend Developer",
-    company: "TechCorp Inc.",
+    company: "RunAsh AI.",
     location: "San Francisco, CA",
-    period: "2022 - Present",
+    period: "2021 - Present",
     description:
       "Led the frontend development team in building scalable web applications. Implemented modern frontend architecture using React and Next.js. Improved performance and accessibility across all projects.",
     type: "work",
@@ -19,42 +19,42 @@ const timelineItems = [
   {
     id: 2,
     title: "Full Stack Developer",
-    company: "WebSolutions Ltd.",
-    location: "New York, NY",
-    period: "2020 - 2022",
+    company: "RunAsh.",
+    location: "Bokaro, India",
+    period: "2021 - Present",
     description:
-      "Developed full-stack applications using React, Node.js, and MongoDB. Collaborated with design and product teams to deliver high-quality user experiences. Implemented CI/CD pipelines for automated testing and deployment.",
+      "Developed full-stack applications using React, Node.js, and PostgreSQL. Collaborated with design and product teams to deliver high-quality user experiences. Implemented CI/CD pipelines for automated testing and deployment.",
     type: "work",
   },
   {
     id: 3,
-    title: "Master's in Computer Science",
-    institution: "Tech University",
-    location: "Boston, MA",
-    period: "2018 - 2020",
+    title: "Bachelor's in Computer Science",
+    institution: "Massachusetts Institute of Technology",
+    location: "Massachusetts, ",
+    period: "2026 - 2031",
     description:
       "Specialized in Software Engineering and Artificial Intelligence. Completed thesis on 'Optimizing Web Performance in Modern Applications'. Participated in various hackathons and coding competitions.",
     type: "education",
   },
   {
     id: 4,
-    title: "Junior Web Developer",
-    company: "Digital Creations",
-    location: "Chicago, IL",
-    period: "2017 - 2020",
+    title: "Developer",
+    company: "Runash Son's of Industries",
+    location: "Bokaro, India",
+    period: "2017 - Present",
     description:
-      "Developed and maintained client websites using HTML, CSS, JavaScript, and PHP. Collaborated with designers to implement responsive designs. Assisted in migrating legacy systems to modern frameworks.",
+      "Developed and maintained client websites using Next.js, Tailwind CSS, JavaScript, and TypeScript. Collaborated with designers to implement responsive designs. Assisted in migrating legacy systems to modern frameworks.",
     type: "work",
   },
   {
     id: 5,
-    title: "Bachelor's in Computer Science",
-    institution: "University of Technology",
-    location: "Chicago, IL",
-    period: "2013 - 2017",
+    title: "Active Politician",
+    institution: "Bhartiya Janta party",
+    location: "Jharkhand, India",
+    period: "2018 - Present",
     description:
-      "Graduated with honors. Focused on web development and database systems. Completed capstone project on e-commerce platform development.",
-    type: "education",
+      "Nation first philosophy.",
+    type: "volenteer",
   },
 ]
 
@@ -68,7 +68,7 @@ export default function Timeline() {
 
         <FadeIn delay={2}>
           <p className="text-lg text-muted-foreground text-center max-w-3xl mx-auto mb-12">
-            My professional journey and educational background that have shaped my skills and expertise.
+            My professional & politician journey and educational background that have shaped my skills and expertise.
           </p>
         </FadeIn>
 
