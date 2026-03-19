@@ -8,18 +8,12 @@ import { useLanguage } from "@/context/language-context"
 import type * as THREE from "three"
 
 const skills = [
-  { name: "React", level: 0.9, color: "#61DAFB" },
   { name: "Next.js", level: 0.85, color: "#000000" },
-  { name: "TypeScript", level: 0.8, color: "#3178C6" },
-  { name: "Node.js", level: 0.85, color: "#339933" },
-  { name: "MongoDB", level: 0.75, color: "#47A248" },
-  { name: "PostgreSQL", level: 0.7, color: "#336791" },
-  { name: "GraphQL", level: 0.65, color: "#E10098" },
   { name: "Tailwind", level: 0.9, color: "#06B6D4" },
-  { name: "Docker", level: 0.6, color: "#2496ED" },
-  { name: "AWS", level: 0.7, color: "#FF9900" },
   { name: "Redux", level: 0.75, color: "#764ABC" },
-  { name: "Jest", level: 0.65, color: "#C21325" },
+  { name: "Politician", level: 0.75, color: "#764ABC" },
+  { name: "Startup", level: 0.75, color: "#764ABC" },
+  { name: "Entrepreneur", level: 0.75, color: "#764ABC" },
 ]
 
 interface SkillNodeProps {
