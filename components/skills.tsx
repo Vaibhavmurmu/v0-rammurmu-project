@@ -29,20 +29,8 @@ const skills = [
     proficiency: 95,
     color: "bg-blue-500",
   },
-  {
-    name: "Backend Development",
-    icon: Server,
-    description: "Node.js, Express, Django",
-    proficiency: 90,
-    color: "bg-green-500",
-  },
-  {
-    name: "Database Management",
-    icon: Database,
-    description: "MongoDB, PostgreSQL, MySQL",
-    proficiency: 85,
-    color: "bg-purple-500",
-  },
+  
+  
   {
     name: "UI/UX Design",
     icon: Palette,
@@ -57,13 +45,7 @@ const skills = [
     proficiency: 75,
     color: "bg-orange-500",
   },
-  {
-    name: "DevOps",
-    icon: Terminal,
-    description: "Docker, AWS, CI/CD",
-    proficiency: 70,
-    color: "bg-red-500",
-  },
+  
   {
     name: "Web Performance",
     icon: Zap,
@@ -71,20 +53,7 @@ const skills = [
     proficiency: 85,
     color: "bg-yellow-500",
   },
-  {
-    name: "API Development",
-    icon: Globe,
-    description: "REST, GraphQL, WebSockets",
-    proficiency: 90,
-    color: "bg-teal-500",
-  },
-  {
-    name: "Programming Languages",
-    icon: Code,
-    description: "JavaScript, TypeScript, Python",
-    proficiency: 95,
-    color: "bg-indigo-500",
-  },
+  
 ]
 
 export default function Skills() {
