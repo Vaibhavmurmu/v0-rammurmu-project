@@ -1,7 +1,7 @@
 export const en = {
-  "meta.title": "Vaibhav Murmu | Co-founder & CFO and Developer",
+  "meta.title": "New Bharat Party | People-First Non-Profit Movement",
   "meta.description":
-    "Personal portfolio website of Vaibhav Murmu, Co-founder & CFO and Developer building modern digital products.",
+    "Official platform of New Bharat Party, a non-profit movement founded by Vaibhav Murmu in Bokaro Industrial Area, Jharkhand, Bharat.",
 
   "nav.home": "Home",
   "nav.about": "About",
@@ -10,20 +10,24 @@ export const en = {
   "nav.blog": "Blog",
   "nav.contact": "Contact",
 
-  "hero.greeting": "Hi, I'm",
+  "hero.greeting": "Welcome to",
   "hero.role":
-    "Co-founder & CFO and Developer focused on modern web technologies and meaningful digital experiences.",
-  "hero.contact": "Contact Me",
-  "hero.download": "Download CV",
+    "A non-profit organization building transparent governance, local opportunity, and inclusive growth across Bharat.",
+  "hero.contact": "Contact Campaign",
+  "hero.download": "View Founder Profile",
+  "hero.social.github": "GitHub",
+  "hero.social.linkedin": "LinkedIn",
+  "hero.social.twitter": "Twitter",
 
-  "about.title": "About Me",
+  "about.title": "About New Bharat Party",
   "about.description1":
-    "I am Vaibhav Murmu, a Co-founder & CFO and Developer with hands-on experience building modern, user-focused web products from idea to launch.",
+    "New Bharat Party is a non-profit public movement founded by Vaibhav Murmu to build accountable institutions and citizen-first development.",
   "about.description2":
-    "I combine business leadership with product execution—driving strategy, finance, and development to deliver scalable solutions and measurable impact.",
-  "about.education": "Education",
-  "about.experience": "Experience",
-  "about.interests": "Interests",
+    "We operate from Bokaro Industrial Area, Jharkhand, and organize transparent campaigns, volunteer action, and policy education for long-term nation building.",
+  "about.foundation": "Foundation",
+  "about.legal": "Legal Status",
+  "about.legalStatus": "Status",
+  "about.mission": "Mission",
 
   "skills.title": "My Skills",
   "skills.description":

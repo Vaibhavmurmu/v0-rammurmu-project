@@ -14,13 +14,12 @@ import CookieConsent from "@/components/cookie-consent"
 // import KeyboardShortcuts from "@/components/keyboard-shortcuts"
 // import UIInteractions from "@/components/ui-interactions"
 import type { Metadata } from "next"
-
+import { partyProfile } from "@/lib/party-profile"
 
 export const metadata: Metadata = {
-  title: "Vaibhav Murmu | Co-founder & CFO and Developer",
-  description:
-    "Personal portfolio website of Vaibhav Murmu, Co-founder & CFO and Developer building modern digital products.",
-    generator: 'v0.dev'
+  title: `${partyProfile.organization_name} | People-First Non-Profit Movement`,
+  description: partyProfile.mission_statement,
+  generator: "v0.dev",
 }
 
 export default function RootLayout({

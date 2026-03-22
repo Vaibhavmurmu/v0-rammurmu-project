@@ -7,6 +7,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { motion } from "framer-motion"
 import { useLanguage } from "@/context/language-context"
+import { partyProfile } from "@/lib/party-profile"
 
 export default function Hero() {
   const { t } = useLanguage()
@@ -37,14 +38,14 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight"
           >
-            {t("hero.greeting")}{" "}
+            {t("hero.greeting")} {" "}
             <motion.span
               initial={{ color: "inherit" }}
               animate={{ color: "hsl(var(--primary))" }}
               transition={{ duration: 0.5, delay: 0.4 }}
               className="text-primary"
             >
-              Vaibhav Murmu
+              {partyProfile.organization_name}
             </motion.span>
           </motion.h1>
           <motion.p
@@ -69,7 +70,7 @@ export default function Hero() {
             </Button>
             <Button asChild variant="outline" size="lg" className="rounded-full">
               <Link href="/resume">
-                <Download className="mr-2 h-4 w-4" /> View Vaibhav's Resume
+                <Download className="mr-2 h-4 w-4" /> {t("hero.download")}
               </Link>
             </Button>
           </motion.div>
@@ -88,7 +89,7 @@ export default function Hero() {
                 className="inline-flex h-10 w-10 items-center justify-center rounded-full text-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
               >
                 <Github className="h-5 w-5" />
-                <span className="sr-only">GitHub</span>
+                <span className="sr-only">{t("hero.social.github")}</span>
               </Link>
             </motion.div>
             <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
@@ -99,7 +100,7 @@ export default function Hero() {
                 className="inline-flex h-10 w-10 items-center justify-center rounded-full text-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
               >
                 <Linkedin className="h-5 w-5" />
-                <span className="sr-only">LinkedIn</span>
+                <span className="sr-only">{t("hero.social.linkedin")}</span>
               </Link>
             </motion.div>
             <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
@@ -110,7 +111,7 @@ export default function Hero() {
                 className="inline-flex h-10 w-10 items-center justify-center rounded-full text-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
               >
                 <Twitter className="h-5 w-5" />
-                <span className="sr-only">Twitter</span>
+                <span className="sr-only">{t("hero.social.twitter")}</span>
               </Link>
             </motion.div>
           </motion.div>
@@ -135,7 +136,7 @@ export default function Hero() {
             className="absolute inset-0 rounded-full bg-gradient-to-tr from-primary/20 to-primary/40 blur-3xl -z-10"
           />
           <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-background shadow-xl">
-            <Image src="/rammurmu.jpg" alt="Vaibhav Murmu" fill className="object-cover" priority />
+            <Image src="/rammurmu.jpg" alt={partyProfile.organization_name} fill className="object-cover" priority />
           </div>
         </motion.div>
       </div>
