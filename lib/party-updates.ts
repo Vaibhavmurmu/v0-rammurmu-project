@@ -1,3 +1,6 @@
+import crypto from "node:crypto"
+import { submitForModeration } from "@/lib/moderation/workflow"
+
 export type UpdateCategory = "announcement" | "press_release" | "campaign" | "community"
 
 export type NewsUpdate = {
@@ -117,3 +120,34 @@ export const partyEvents: PartyEvent[] = [
     description: "On-site review of classroom repairs and safe transport stop-points.",
   },
 ]
+
+export function submitUserGeneratedNewsUpdate(input: {
+  title: string
+  summary: string
+  submittedBy: string
+  location?: string
+}) {
+  const submissionId = `ugc_${crypto.randomUUID()}`
+  const moderation = submitForModeration({
+    submissionId,
+    contentType: "news_update",
+    body: `${input.title} ${input.summary}`,
+    submittedBy: input.submittedBy,
+  })
+
+  if (moderation.status !== "approved") {
+    return { success: false as const, moderationStatus: moderation.status }
+  }
+
+  const newsUpdate: NewsUpdate = {
+    id: `update-${newsUpdates.length + 1}`,
+    title: input.title,
+    summary: input.summary,
+    published_at: new Date().toISOString(),
+    category: "community",
+    location: input.location,
+  }
+
+  newsUpdates.unshift(newsUpdate)
+  return { success: true as const, moderationStatus: moderation.status, newsUpdate }
+}

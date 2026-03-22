@@ -28,3 +28,6 @@ Continue building your app on:
 2. Deploy your chats from the v0 interface
 3. Changes are automatically pushed to this repository
 4. Vercel deploys the latest version from this repository
+## Security & Compliance
+
+Production controls and compliance modules are documented in `docs/security-compliance.md`, with incident handling guidance in `docs/runbooks/incident-response.md`.

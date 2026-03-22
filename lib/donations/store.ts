@@ -7,7 +7,13 @@ import type {
   DonationProvider,
   DonationStatus,
   DonorRegulatoryProfile,
+  EncryptedDonorRegulatoryProfile,
 } from "@/lib/donations/types"
+import { encryptField, decryptField } from "@/lib/security/encryption"
+import { evaluateFinancialLimits } from "@/lib/compliance/financial-limits"
+import { logSecurityEvent } from "@/lib/security/logging"
+import { recordAuditEvent } from "@/lib/compliance/audit-trail"
+import { requirePermission, type AuthActor } from "@/lib/security/rbac"
 
 const intents = new Map<string, DonationIntent>()
 const ledgerByDonationId = new Map<string, DonationLedgerRecord[]>()
@@ -44,6 +50,36 @@ function computeContributionTracking(receiptEmail: string, amountCents: number):
   }
 }
 
+function encryptDonorProfile(profile: DonorRegulatoryProfile): EncryptedDonorRegulatoryProfile {
+  return {
+    legalName: encryptField(profile.legalName),
+    email: encryptField(profile.email),
+    line1: encryptField(profile.line1),
+    city: encryptField(profile.city),
+    state: encryptField(profile.state),
+    postalCode: encryptField(profile.postalCode),
+    country: encryptField(profile.country),
+    occupation: encryptField(profile.occupation),
+    employer: encryptField(profile.employer),
+    isUsCitizenOrPermanentResident: profile.isUsCitizenOrPermanentResident,
+  }
+}
+
+function decryptDonorProfile(profile: EncryptedDonorRegulatoryProfile): DonorRegulatoryProfile {
+  return {
+    legalName: decryptField(profile.legalName),
+    email: decryptField(profile.email),
+    line1: decryptField(profile.line1),
+    city: decryptField(profile.city),
+    state: decryptField(profile.state),
+    postalCode: decryptField(profile.postalCode),
+    country: decryptField(profile.country),
+    occupation: decryptField(profile.occupation),
+    employer: decryptField(profile.employer),
+    isUsCitizenOrPermanentResident: profile.isUsCitizenOrPermanentResident,
+  }
+}
+
 export const donationStore = {
   saveIntent(intent: DonationIntent) {
     intents.set(intent.donationId, intent)
@@ -51,17 +87,22 @@ export const donationStore = {
   getIntent(donationId: string) {
     return intents.get(donationId)
   },
-  appendLedgerRecord(input: {
-    donationId: string
-    status: DonationStatus
-    provider: DonationProvider
-    providerIntentId?: string
-    amountCents: number
-    currency: "USD"
-    reason?: string
-    receiptEmail: string
-    donorProfile: DonorRegulatoryProfile
-  }) {
+  appendLedgerRecord(
+    actor: AuthActor,
+    input: {
+      donationId: string
+      status: DonationStatus
+      provider: DonationProvider
+      providerIntentId?: string
+      amountCents: number
+      currency: "USD"
+      reason?: string
+      receiptEmail: string
+      donorProfile: DonorRegulatoryProfile
+    },
+  ) {
+    requirePermission(actor, "donations:manage")
+
     const existing = ledgerByDonationId.get(input.donationId) ?? []
     const previous = existing.at(-1)
 
@@ -89,14 +130,48 @@ export const donationStore = {
       eventAt: new Date().toISOString(),
       receiptEmail: input.receiptEmail,
       receiptId: `rcpt_${crypto.randomUUID()}`,
-      donorProfile: input.donorProfile,
+      donorProfile: encryptDonorProfile(input.donorProfile),
       contributionLimitTracking,
     }
+
+    const complianceFlags = evaluateFinancialLimits({
+      donationId: input.donationId,
+      amountCents: input.amountCents,
+      aggregateContributionCents: contributionLimitTracking.aggregateContributionCents,
+      cycleContributionLimitCents: contributionLimitTracking.cycleContributionLimitCents,
+    })
+
+    if (complianceFlags.length > 0) {
+      logSecurityEvent({
+        eventType: "compliance_flag",
+        actorId: actor.actorId,
+        message: "Financial compliance limits triggered for donation.",
+        context: { donationId: input.donationId, flags: complianceFlags.length },
+      })
+    }
+
+    recordAuditEvent({
+      eventType: "donation_ledger_appended",
+      actorId: actor.actorId,
+      details: {
+        donationId: input.donationId,
+        status: input.status,
+        amountCents: input.amountCents,
+      },
+    })
 
     ledgerByDonationId.set(input.donationId, [...existing, record])
     return record
   },
   listDonationLedger(donationId: string) {
     return ledgerByDonationId.get(donationId) ?? []
+  },
+  getDonationLedgerWithPii(actor: AuthActor, donationId: string) {
+    requirePermission(actor, "compliance:read")
+
+    return (ledgerByDonationId.get(donationId) ?? []).map((record) => ({
+      ...record,
+      donorProfile: decryptDonorProfile(record.donorProfile),
+    }))
   },
 }
