@@ -1,57 +1,49 @@
 import Link from "next/link"
 import type { Metadata } from "next"
-import { partyProfile } from "@/lib/party-profile"
+import { PartyMission } from "@/components/party/mission"
+import { PartyPolicies } from "@/components/party/policies"
+import { PartyNewsUpdates } from "@/components/party/news-updates"
+import { PartyEvents } from "@/components/party/events"
+import { newBharatParty } from "@/lib/org/new-bharat-party"
 
 const moduleCardClass =
   "rounded-xl border border-border/60 bg-card/70 p-6 shadow-sm transition-colors hover:border-primary/50"
 
 export const metadata: Metadata = {
-  title: `${partyProfile.organization_name} | Official Platform`,
-  description: `${partyProfile.organization_name} is a ${partyProfile.legal_status} organization founded by ${partyProfile.founder_name} on ${partyProfile.founded_on}.`,
+  title: `${newBharatParty.organizationName} | Official Platform`,
+  description: `${newBharatParty.organizationName} is a ${newBharatParty.nonProfitDescriptor} founded by ${newBharatParty.founder} on ${newBharatParty.foundedDate}.`,
 }
 
 export default function Home() {
   return (
     <main className="min-h-screen px-4 pb-16 pt-24 md:px-8 lg:px-16">
       <section id="home" className="mx-auto max-w-5xl space-y-4 py-10">
-        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">Party Hero</p>
-        <h1 className="text-4xl font-bold tracking-tight md:text-5xl">People-First Movement for a Stronger Future</h1>
+        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">{newBharatParty.organizationName}</p>
+        <h1 className="text-4xl font-bold tracking-tight md:text-5xl">Organization-First Participation Platform</h1>
         <p className="max-w-3xl text-muted-foreground">
-          Welcome to our organizing hub. Track voter registration momentum, volunteer in your area, support policy-driven
-          action, and stay connected with campaign updates in one place.
+          A single place for policy engagement, grassroots organizing, volunteer coordination, and public accountability.
+          Built to support informed citizens and community-led change.
         </p>
         <div className="grid gap-4 rounded-xl border border-primary/20 bg-primary/5 p-4 md:grid-cols-3">
           <div>
-            <p className="text-sm text-muted-foreground">Registered Supporters</p>
-            <p className="text-2xl font-semibold">148,230</p>
+            <p className="text-sm text-muted-foreground">Founder</p>
+            <p className="text-2xl font-semibold">{newBharatParty.founder}</p>
           </div>
           <div>
-            <p className="text-sm text-muted-foreground">New This Week</p>
-            <p className="text-2xl font-semibold">4,512</p>
+            <p className="text-sm text-muted-foreground">Founded</p>
+            <p className="text-2xl font-semibold">{newBharatParty.foundedDate}</p>
           </div>
           <div>
-            <p className="text-sm text-muted-foreground">Volunteer Districts Active</p>
-            <p className="text-2xl font-semibold">62 / 75</p>
+            <p className="text-sm text-muted-foreground">Head Office</p>
+            <p className="text-lg font-semibold">{newBharatParty.address}</p>
           </div>
         </div>
       </section>
 
-      <section id="mission" className="mx-auto max-w-5xl py-10">
-        <div className={moduleCardClass}>
-          <h2 className="text-2xl font-semibold">Voter Engagement</h2>
-          <p className="mt-2 text-muted-foreground">
-            Get concise news updates, clear policy stances, and upcoming town halls to help voters make informed choices.
-          </p>
-          <div className="mt-4 flex flex-wrap gap-3">
-            <Link href="/updates" className="text-sm font-medium text-primary underline-offset-4 hover:underline">
-              Read latest updates
-            </Link>
-            <Link href="/voter-info" className="text-sm font-medium text-primary underline-offset-4 hover:underline">
-              View voter resources
-            </Link>
-          </div>
-        </div>
-      </section>
+      <PartyMission />
+      <PartyPolicies />
+      <PartyNewsUpdates />
+      <PartyEvents />
 
       <section className="mx-auto grid max-w-5xl gap-6 py-10 md:grid-cols-2">
         <article className={moduleCardClass}>
@@ -82,7 +74,7 @@ export default function Home() {
           </Link>
         </article>
 
-        <article id="dashboard" className={moduleCardClass}>
+        <article className={moduleCardClass}>
           <h2 className="text-xl font-semibold">Analytics/Admin Access</h2>
           <p className="mt-2 text-muted-foreground">
             Review district performance, engagement funnels, donation trends, and campaign operations snapshots.
@@ -94,11 +86,12 @@ export default function Home() {
       <section id="contact" className="mx-auto max-w-5xl py-10">
         <div className={moduleCardClass}>
           <h2 className="text-2xl font-semibold">Contact</h2>
-          <p className="mt-2 text-muted-foreground">
-            Reach our campaign team for partnerships, media requests, and community collaboration.
-          </p>
-          <a href="mailto:campaign@example.org" className="mt-4 inline-block text-sm font-medium text-primary hover:underline">
-            campaign@example.org
+          <p className="mt-2 text-muted-foreground">Reach our team for partnerships, media requests, and collaboration.</p>
+          <a
+            href={`mailto:${newBharatParty.contactEmail}`}
+            className="mt-4 inline-block text-sm font-medium text-primary hover:underline"
+          >
+            {newBharatParty.contactEmail}
           </a>
         </div>
       </section>
