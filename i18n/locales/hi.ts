@@ -103,4 +103,25 @@ export const hi = {
   "testimonialForm.success": "प्रशंसापत्र जमा किया गया!",
   "testimonialForm.successMessage":
     "आपकी प्रतिक्रिया के लिए धन्यवाद! आपका प्रशंसापत्र समीक्षा के बाद जल्द ही वेबसाइट पर जोड़ा जाएगा।",
+
+  "voterInfo.title": "मतदाता जानकारी टूलकिट",
+  "voterInfo.description": "पंजीकरण मार्गदर्शन और मतदान केंद्र जानकारी के लिए सुरक्षित लुकअप टूल का उपयोग करें।",
+  "voterInfo.regionLabel": "राज्य / क्षेत्र कोड",
+  "voterInfo.postalLabel": "पिन कोड",
+  "voterInfo.loading": "लोड हो रहा है...",
+  "voterInfo.registerCta": "मतदाता पंजीकरण करें",
+  "voterInfo.pollingCta": "मतदान केंद्र खोजें",
+  "voterInfo.lookupError": "अभी लुकअप पूरा नहीं हो पाया। कृपया थोड़ी देर बाद फिर प्रयास करें।",
+  "voterInfo.registrationGuidance": "पंजीकरण मार्गदर्शन",
+  "voterInfo.pollingDetails": "मतदान केंद्र विवरण",
+  "voterInfo.stationName": "केंद्र",
+  "voterInfo.stationAddress": "पता",
+  "voterInfo.stationHours": "समय",
+  "voterInfo.stationId": "आईडी आवश्यकता",
+  "voterInfo.disclaimerTitle": "आधिकारिक चुनाव जानकारी अस्वीकरण",
+  "voterInfo.disclaimerBody": "यह पेज केवल सहायक जानकारी देता है। कार्रवाई से पहले आधिकारिक चुनाव वेबसाइट पर समय-सीमा, पता और पात्रता नियम अवश्य सत्यापित करें।",
+  "voterInfo.sourceAttribution": "स्रोत श्रेय",
+  "voterInfo.sourceHint": "प्रदाता का स्रोत विवरण देखने के लिए लुकअप चलाएँ।",
+  "voterInfo.viewProviders": "स्वीकृत प्रदाता सूची देखें",
+
 }

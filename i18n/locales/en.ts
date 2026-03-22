@@ -107,4 +107,25 @@ export const en = {
   "testimonialForm.success": "Testimonial Submitted!",
   "testimonialForm.successMessage":
     "Thank you for your feedback! Your testimonial will be reviewed and added to the website soon.",
+
+  "voterInfo.title": "Voter Information Toolkit",
+  "voterInfo.description": "Use secure lookup tools for registration guidance and polling place details.",
+  "voterInfo.regionLabel": "State / Region code",
+  "voterInfo.postalLabel": "Postal code",
+  "voterInfo.loading": "Loading...",
+  "voterInfo.registerCta": "Register to Vote",
+  "voterInfo.pollingCta": "Find Polling Station",
+  "voterInfo.lookupError": "We couldn't complete this lookup right now. Please retry in a moment.",
+  "voterInfo.registrationGuidance": "Registration guidance",
+  "voterInfo.pollingDetails": "Polling station details",
+  "voterInfo.stationName": "Station",
+  "voterInfo.stationAddress": "Address",
+  "voterInfo.stationHours": "Hours",
+  "voterInfo.stationId": "ID requirement",
+  "voterInfo.disclaimerTitle": "Official election information disclaimer",
+  "voterInfo.disclaimerBody": "This page provides assistance only. Always verify deadlines, addresses, and eligibility requirements on official election websites before taking action.",
+  "voterInfo.sourceAttribution": "Source attribution",
+  "voterInfo.sourceHint": "Run a lookup to load provider attribution details.",
+  "voterInfo.viewProviders": "View approved provider list",
+
 }
