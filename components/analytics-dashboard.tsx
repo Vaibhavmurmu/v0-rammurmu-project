@@ -75,7 +75,7 @@ export default function AnalyticsDashboard() {
 
         <FadeIn delay={2}>
           <p className="text-lg text-muted-foreground text-center max-w-3xl mx-auto mb-12">
-            Track the performance of my portfolio website with real-time analytics and insights.
+            Track the performance of my portfolio website with web analytics and trend insights.
           </p>
         </FadeIn>
 
