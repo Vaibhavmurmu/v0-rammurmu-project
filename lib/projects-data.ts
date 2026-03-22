@@ -180,4 +180,43 @@ export const projectsData: Project[] = [
     slug: "legaldoc-ai",
     featured: false,
   },
+  {
+    id: 9,
+    title: "New Bharat Party Integration",
+    description:
+      "A civic engagement platform for the New Bharat Party to manage supporters, campaigns, donations, and advocacy initiatives.",
+    longDescription:
+      "This custom integration was designed for the New Bharat Party, a non-profit organization founded by Vaibhav Murmu on April 1, 2026, in Bokaro Industrial Area, Jharkhand, Bharat 827014. The platform combines voter engagement, campaign operations, secure fundraising, and advocacy workflows in one unified system. It includes multilingual supporter experiences, real-time updates, field tools, and analytics for data-driven outreach while maintaining strict security and compliance expectations for political technology products.",
+    image: "/runash-logo.jpeg",
+    screenshots: projectScreenshots,
+    tags: ["Next.js", "FastAPI", "PostgreSQL", "Stripe", "Security"],
+    categories: ["Civic Tech", "Campaign Platform", "Full Stack"],
+    githubUrl: "https://github.com/vaibhavmurmu/new-bharat-party-integration",
+    slug: "new-bharat-party-integration",
+    featured: true,
+    challenge:
+      "Building a trusted political engagement system required balancing high-velocity campaign operations with strict data protection, financial controls, and platform policy compliance.",
+    solution:
+      "The integration uses modular services for supporter management, campaign workflows, donations, and advocacy actions. Security controls include MFA-ready authentication, encryption in transit and at rest, and auditable financial tracking for donation compliance.",
+    features: [
+      "Voter engagement hub with policy updates, event announcements, and public news",
+      "Campaign management tools for canvassing, volunteer tracking, and structured data collection",
+      "Secure donation portal with recurring contributions, one-click giving, and payment gateway integrations",
+      "Advocacy workflows for petitions and representative contact actions",
+      "Voter registration and polling-station information portal",
+      "Real-time notifications for urgent updates, rallies, and live-streamed events",
+      "Volunteer field maps, walk/call lists, and task assignment management",
+      "Interactive polls, surveys, and quizzes to measure sentiment and engagement",
+      "Admin analytics dashboard for supporter behavior, donation trends, and campaign outcomes",
+      "Compliance guardrails aligned to ECI-oriented governance and app-store policy standards",
+    ],
+    technologies: {
+      frontend: ["Next.js", "TypeScript", "Tailwind CSS", "Web Push Notifications"],
+      backend: ["FastAPI", "PostgreSQL", "Redis", "Role-Based Access Control"],
+      payment: ["Stripe", "PayPal", "Recurring Billing Controls"],
+      devops: ["Docker", "Kubernetes", "Audit Logging", "Monitoring & Alerting"],
+    },
+    outcome:
+      "The New Bharat Party gained a centralized digital operations layer that helps coordinate supporters, improve campaign execution, and run secure, transparent fundraising and advocacy programs.",
+  },
 ]
