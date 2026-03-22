@@ -13,33 +13,33 @@ const testimonials = [
   {
     id: 1,
     content:
-      "Ram is an exceptional developer who delivered our project ahead of schedule. His attention to detail and problem-solving skills are impressive. I highly recommend him for any web development project.",
-    name: "Sarah Johnson",
-    position: "CTO, TechInnovate",
-    image: "/placeholder.svg?height=100&width=100",
+      "Vaibhav Murmu is an exceptional developer who delivered our project ahead of schedule. His attention to detail and problem-solving skills are impressive. I highly recommend him for any web development project.",
+    name: "Ram Murmu",
+    position: "CEO & CTO, RunAsh AI",
+    image: "/rammurmu.svg?height=100&width=100",
   },
   {
     id: 2,
     content:
-      "Working with Ram was a fantastic experience. He understood our requirements perfectly and created a solution that exceeded our expectations. His technical expertise and communication skills made the project run smoothly.",
-    name: "Michael Chen",
-    position: "Founder, DataViz Solutions",
+      "Working with Vaibhav Murmu was a fantastic experience. He understood our requirements perfectly and created a solution that exceeded our expectations. His technical expertise and communication skills made the project run smoothly.",
+    name: "P K Murmu",
+    position: "Marketing Head, RunAsh AI",
     image: "/placeholder.svg?height=100&width=100",
   },
   {
     id: 3,
     content:
-      "Ram transformed our outdated website into a modern, responsive platform that has significantly increased our user engagement. His creative approach and technical skills are truly outstanding.",
-    name: "Priya Patel",
-    position: "Marketing Director, GrowthHub",
+      "Vaibhav Murmu transformed our outdated website into a modern, responsive platform that has significantly increased our user engagement. His creative approach and technical skills are truly outstanding.",
+    name: "Nirali Murmu",
+    position: "Team Lead, RunAsh AI",
     image: "/placeholder.svg?height=100&width=100",
   },
   {
     id: 4,
     content:
-      "I've worked with many developers, but Ram stands out for his ability to translate complex requirements into elegant solutions. He's not just a coder, but a true problem solver who thinks about the business impact of his work.",
-    name: "David Wilson",
-    position: "Product Manager, InnovateTech",
+      "I've worked with many developers, but Vaibhav Murmu stands out for his ability to translate complex requirements into elegant solutions. He's not just a coder, but a true problem solver who thinks about the business impact of his work.",
+    name: "C Murmu",
+    position: "Community Manager, RunAsh AI",
     image: "/placeholder.svg?height=100&width=100",
   },
 ]
