@@ -1,4 +1,6 @@
 import crypto from "node:crypto"
+import { encryptField, decryptField } from "@/lib/security/encryption"
+import { captureEciDisclosure } from "@/lib/compliance/disclosures"
 
 export type PetitionSignatureInput = {
   petitionId: string
@@ -10,7 +12,10 @@ export type PetitionSignatureInput = {
   acknowledgedDataUsage: boolean
 }
 
-type PetitionSignatureRecord = PetitionSignatureInput & {
+type PetitionSignatureRecord = Omit<PetitionSignatureInput, "fullName" | "email" | "message"> & {
+  fullName: string
+  email: string
+  message?: string
   signedAt: string
   signatureId: string
 }
@@ -84,16 +89,31 @@ export const advocacyStore = {
     const signatureId = hashSignature(input)
     const record: PetitionSignatureRecord = {
       ...input,
-      email: emailKey,
+      fullName: encryptField(input.fullName),
+      email: encryptField(emailKey),
+      message: input.message ? encryptField(input.message) : undefined,
       signedAt: new Date().toISOString(),
       signatureId,
     }
 
     petitionSignatures.set(emailKey, record)
 
+    captureEciDisclosure({
+      submissionId: signatureId,
+      donorName: input.fullName,
+      donorAddress: input.districtId,
+      donorNationality: "Indian",
+      declarationAccepted: input.acknowledgedDataUsage,
+    })
+
     return {
       success: true as const,
-      signature: record,
+      signature: {
+        ...record,
+        fullName: decryptField(record.fullName),
+        email: decryptField(record.email),
+        message: record.message ? decryptField(record.message) : undefined,
+      },
       totalSignatures: petitionSignatures.size,
     }
   },

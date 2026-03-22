@@ -17,6 +17,19 @@ export type DonorRegulatoryProfile = {
   isUsCitizenOrPermanentResident: boolean
 }
 
+export type EncryptedDonorRegulatoryProfile = {
+  legalName: string
+  email: string
+  line1: string
+  city: string
+  state: string
+  postalCode: string
+  country: string
+  occupation: string
+  employer: string
+  isUsCitizenOrPermanentResident: boolean
+}
+
 export type ContributionLimitTracking = {
   electionCycle: string
   cycleContributionLimitCents: number
@@ -48,6 +61,6 @@ export type DonationLedgerRecord = {
   eventAt: string
   receiptEmail: string
   receiptId: string
-  donorProfile: DonorRegulatoryProfile
+  donorProfile: EncryptedDonorRegulatoryProfile
   contributionLimitTracking: ContributionLimitTracking
 }

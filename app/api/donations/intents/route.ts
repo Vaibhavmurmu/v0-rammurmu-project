@@ -5,7 +5,10 @@ import { DONATION_TIER_AMOUNTS_CENTS, type DonationTier } from "@/lib/donations/
 import { idempotency } from "@/lib/donations/idempotency"
 import { createProviderIntent } from "@/lib/donations/providers"
 import { donationStore } from "@/lib/donations/store"
+import type { AuthActor } from "@/lib/security/rbac"
 import type { DonationProvider, DonorRegulatoryProfile } from "@/lib/donations/types"
+
+const SYSTEM_ACTOR: AuthActor = { actorId: "system", role: "super_admin", mfaVerified: true }
 
 const donationIntentSchema = z.object({
   provider: z.enum(["stripe", "paypal"]),
@@ -61,7 +64,7 @@ export async function POST(request: Request) {
     createdAt: new Date().toISOString(),
   })
 
-  donationStore.appendLedgerRecord({
+  donationStore.appendLedgerRecord(SYSTEM_ACTOR, {
     donationId,
     status: "initiated",
     provider,
@@ -73,7 +76,7 @@ export async function POST(request: Request) {
   })
 
   if (providerIntent.authorizationState === "requires_capture") {
-    donationStore.appendLedgerRecord({
+    donationStore.appendLedgerRecord(SYSTEM_ACTOR, {
       donationId,
       status: "authorized",
       provider,
