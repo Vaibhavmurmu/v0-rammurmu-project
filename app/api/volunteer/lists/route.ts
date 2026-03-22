@@ -1,5 +1,6 @@
-import { NextResponse } from "next/server"
+import { NextResponse, type NextRequest } from "next/server"
 import { z } from "zod"
+import { getActorFromRequest, requireApiPermission } from "@/lib/security/api-guards"
 import { volunteerStore } from "@/lib/volunteer/store"
 
 const createListSchema = z.object({
@@ -10,13 +11,15 @@ const createListSchema = z.object({
   totalTargets: z.number().int().positive(),
 })
 
-function assertOrganizer(request: Request) {
-  return request.headers.get("x-user-role") === "organizer"
-}
+export async function POST(request: NextRequest) {
+  const actor = getActorFromRequest(request)
+  if (actor instanceof NextResponse) {
+    return actor
+  }
 
-export async function POST(request: Request) {
-  if (!assertOrganizer(request)) {
-    return NextResponse.json({ error: "organizer role required" }, { status: 403 })
+  const permissionError = requireApiPermission(actor, "volunteers:manage")
+  if (permissionError) {
+    return permissionError
   }
 
   const parsed = createListSchema.safeParse(await request.json())
@@ -24,11 +27,21 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "invalid list payload" }, { status: 400 })
   }
 
-  const list = volunteerStore.createOutreachList(parsed.data)
+  const list = volunteerStore.createOutreachListAs(actor, parsed.data)
   return NextResponse.json({ list }, { status: 201 })
 }
 
-export async function GET() {
+export async function GET(request: NextRequest) {
+  const actor = getActorFromRequest(request)
+  if (actor instanceof NextResponse) {
+    return actor
+  }
+
+  const permissionError = requireApiPermission(actor, "campaign:access")
+  if (permissionError) {
+    return permissionError
+  }
+
   return NextResponse.json({
     geographies: volunteerStore.listGeographies(),
     lists: volunteerStore.listOutreachLists(),

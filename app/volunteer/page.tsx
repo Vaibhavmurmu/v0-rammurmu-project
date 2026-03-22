@@ -28,6 +28,12 @@ export default function VolunteerPage({ searchParams }: VolunteerPageProps) {
 
         <VolunteerSignup defaultRole={activeRole} />
 
+        <p className="text-sm text-muted-foreground">
+          Advanced tools: <a className="underline" href="/volunteer/assignments">/volunteer/assignments</a> for assignment board and
+          {" "}
+          <a className="underline" href="/admin/field">/admin/field</a> for field admin controls.
+        </p>
+
         <TaskBoard role={activeRole} />
 
         {activeRole === "organizer" ? (
