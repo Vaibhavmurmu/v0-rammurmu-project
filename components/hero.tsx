@@ -2,12 +2,12 @@
 
 import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Download, Github, Linkedin, Twitter } from "lucide-react"
+import { ArrowRight, Globe, Linkedin, Twitter } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { motion } from "framer-motion"
 import { useLanguage } from "@/context/language-context"
-import { partyProfile } from "@/lib/party-profile"
+import { newBharatParty } from "@/lib/org/new-bharat-party"
 
 export default function Hero() {
   const { t } = useLanguage()
@@ -19,7 +19,6 @@ export default function Hero() {
 
   return (
     <section id="home" className="relative min-h-screen flex items-center">
-      {/* Background with blur effect */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute inset-0 bg-[url('/placeholder.svg')] bg-cover bg-center opacity-50 dark:opacity-30" />
         <div className="absolute inset-0 backdrop-blur-sm bg-background/50" />
@@ -38,14 +37,14 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight"
           >
-            {t("hero.greeting")} {" "}
+            {t("hero.greeting")}{" "}
             <motion.span
               initial={{ color: "inherit" }}
               animate={{ color: "hsl(var(--primary))" }}
               transition={{ duration: 0.5, delay: 0.4 }}
               className="text-primary"
             >
-              {partyProfile.organization_name}
+              {newBharatParty.organizationName}
             </motion.span>
           </motion.h1>
           <motion.p
@@ -54,7 +53,7 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 0.6 }}
             className="text-xl text-muted-foreground"
           >
-            {t("hero.role")}
+            {newBharatParty.nonProfitDescriptor}
           </motion.p>
 
           <motion.div
@@ -69,8 +68,8 @@ export default function Hero() {
               </Link>
             </Button>
             <Button asChild variant="outline" size="lg" className="rounded-full">
-              <Link href="/resume">
-                <Download className="mr-2 h-4 w-4" /> {t("hero.download")}
+              <Link href="/updates">
+                <Globe className="mr-2 h-4 w-4" /> Latest updates
               </Link>
             </Button>
           </motion.div>
@@ -83,35 +82,24 @@ export default function Hero() {
           >
             <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
               <Link
-                href="https://github.com/vaibhavmurmu"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex h-10 w-10 items-center justify-center rounded-full text-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
-              >
-                <Github className="h-5 w-5" />
-                <span className="sr-only">{t("hero.social.github")}</span>
-              </Link>
-            </motion.div>
-            <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
-              <Link
-                href="https://linkedin.com/in/vaibhavmurmu"
+                href={newBharatParty.socialLinks.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex h-10 w-10 items-center justify-center rounded-full text-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
               >
                 <Linkedin className="h-5 w-5" />
-                <span className="sr-only">{t("hero.social.linkedin")}</span>
+                <span className="sr-only">LinkedIn</span>
               </Link>
             </motion.div>
             <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
               <Link
-                href="https://x.com/vaibhavmurmu"
+                href={newBharatParty.socialLinks.x}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex h-10 w-10 items-center justify-center rounded-full text-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
               >
                 <Twitter className="h-5 w-5" />
-                <span className="sr-only">{t("hero.social.twitter")}</span>
+                <span className="sr-only">X</span>
               </Link>
             </motion.div>
           </motion.div>
@@ -136,7 +124,7 @@ export default function Hero() {
             className="absolute inset-0 rounded-full bg-gradient-to-tr from-primary/20 to-primary/40 blur-3xl -z-10"
           />
           <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-background shadow-xl">
-            <Image src="/rammurmu.jpg" alt={partyProfile.organization_name} fill className="object-cover" priority />
+            <Image src="/rammurmu.jpg" alt={newBharatParty.organizationName} fill className="object-cover" priority />
           </div>
         </motion.div>
       </div>

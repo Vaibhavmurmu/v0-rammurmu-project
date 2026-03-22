@@ -2,7 +2,7 @@
 
 import { SectionTitle, FadeIn, SlideIn } from "./motion-wrapper"
 import { useLanguage } from "@/context/language-context"
-import { partyProfile } from "@/lib/party-profile"
+import { newBharatParty } from "@/lib/org/new-bharat-party"
 
 export default function About() {
   const { t } = useLanguage()
@@ -22,11 +22,11 @@ export default function About() {
             <div className="bg-background/80 backdrop-blur-sm p-6 rounded-xl shadow-sm">
               <h3 className="text-xl font-semibold mb-3">{t("about.foundation")}</h3>
               <p className="text-muted-foreground">
-                {partyProfile.founder_name}
+                {newBharatParty.founder}
                 <br />
-                {partyProfile.founded_on}
+                {newBharatParty.foundedDate}
                 <br />
-                {partyProfile.founded_at}
+                {newBharatParty.address}
               </p>
             </div>
           </SlideIn>
@@ -35,9 +35,9 @@ export default function About() {
             <div className="bg-background/80 backdrop-blur-sm p-6 rounded-xl shadow-sm">
               <h3 className="text-xl font-semibold mb-3">{t("about.legal")}</h3>
               <p className="text-muted-foreground">
-                {partyProfile.organization_name}
+                {newBharatParty.organizationName}
                 <br />
-                {t("about.legalStatus")}: {partyProfile.legal_status}
+                {t("about.legalStatus")}: {newBharatParty.nonProfitDescriptor}
               </p>
             </div>
           </SlideIn>
@@ -45,7 +45,7 @@ export default function About() {
           <SlideIn delay={5}>
             <div className="bg-background/80 backdrop-blur-sm p-6 rounded-xl shadow-sm">
               <h3 className="text-xl font-semibold mb-3">{t("about.mission")}</h3>
-              <p className="text-muted-foreground">{partyProfile.mission_statement}</p>
+              <p className="text-muted-foreground">{newBharatParty.missionStatement}</p>
             </div>
           </SlideIn>
         </div>

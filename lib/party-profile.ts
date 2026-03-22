@@ -1,3 +1,5 @@
+import { newBharatParty } from "@/lib/org/new-bharat-party"
+
 export type PartyProfile = {
   organization_name: string
   legal_status: string
@@ -8,11 +10,10 @@ export type PartyProfile = {
 }
 
 export const partyProfile: PartyProfile = {
-  organization_name: "New Bharat Party",
-  legal_status: "non-profit",
-  founder_name: "Vaibhav Murmu",
-  founded_on: "2026-04-01",
-  founded_at: "Bokaro Industrial Area, Jharkhand, Bharat 827014",
-  mission_statement:
-    "Build a people-first movement rooted in transparent governance, local opportunity, and inclusive growth for every household in Bharat.",
+  organization_name: newBharatParty.organizationName,
+  legal_status: newBharatParty.nonProfitDescriptor,
+  founder_name: newBharatParty.founder,
+  founded_on: newBharatParty.foundedDate,
+  founded_at: newBharatParty.address,
+  mission_statement: newBharatParty.missionStatement,
 }

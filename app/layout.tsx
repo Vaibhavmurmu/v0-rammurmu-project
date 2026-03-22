@@ -10,15 +10,12 @@ import PageTransition from "@/components/page-transition"
 import ScrollProgress from "@/components/scroll-progress"
 import FloatingActionButton from "@/components/floating-action-button"
 import CookieConsent from "@/components/cookie-consent"
-// Temporarily remove problematic components
-// import KeyboardShortcuts from "@/components/keyboard-shortcuts"
-// import UIInteractions from "@/components/ui-interactions"
 import type { Metadata } from "next"
-import { partyProfile } from "@/lib/party-profile"
+import { newBharatParty } from "@/lib/org/new-bharat-party"
 
 export const metadata: Metadata = {
-  title: `${partyProfile.organization_name} | People-First Non-Profit Movement`,
-  description: partyProfile.mission_statement,
+  title: `${newBharatParty.organizationName} | ${newBharatParty.nonProfitDescriptor}`,
+  description: `${newBharatParty.organizationName} was founded by ${newBharatParty.founder} on ${newBharatParty.foundedDate}.`,
   generator: "v0.dev",
 }
 
@@ -40,9 +37,6 @@ export default function RootLayout({
             <Chatbot />
             <FloatingActionButton />
             <CookieConsent />
-            {/* Temporarily remove problematic components */}
-            {/* <KeyboardShortcuts /> */}
-            {/* <UIInteractions /> */}
           </LanguageProvider>
         </ThemeProvider>
       </body>

@@ -8,16 +8,18 @@ import ThemeToggle from "@/components/theme-toggle"
 import Search from "@/components/search"
 import LanguageSwitcher from "@/components/language-switcher"
 import ThemeCustomizer from "@/components/theme-customizer"
+import { newBharatParty } from "@/lib/org/new-bharat-party"
 
 const navItems = [
   { name: "Home", href: "#home" },
   { name: "Mission", href: "#mission" },
-  { name: "Updates", href: "/updates" },
+  { name: "Policies", href: "#policies" },
+  { name: "News", href: "#news-updates" },
+  { name: "Events", href: "#events" },
   { name: "Volunteer", href: "/volunteer" },
   { name: "Donate", href: "/donate" },
   { name: "Register to Vote", href: "/voter-info" },
   { name: "Advocacy", href: "/advocacy" },
-  { name: "Dashboard", href: "#dashboard" },
   { name: "Contact", href: "#contact" },
 ]
 
@@ -41,10 +43,9 @@ export default function Header() {
     >
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <Link href="#home" className="text-xl font-bold">
-          Vaibhav<span className="text-primary">Murmu</span>
+          New Bharat <span className="text-primary">Party</span>
         </Link>
 
-        {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-6">
           {navItems.map((item) => (
             <Link key={item.name} href={item.href} className="text-sm font-medium hover:text-primary transition-colors">
@@ -59,11 +60,7 @@ export default function Header() {
           </div>
         </nav>
 
-        {/* Mobile Navigation Toggle */}
         <div className="flex items-center gap-2 md:hidden">
-          {/*  <Search /> */}
-          {/*  <LanguageSwitcher /> */}
-          {/*  <ThemeCustomizer /> */}
           <ThemeToggle />
           <Button variant="ghost" size="icon" onClick={() => setIsOpen(!isOpen)} className="md:hidden">
             {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -71,7 +68,6 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile Navigation Menu */}
       {isOpen && (
         <div className="fixed inset-0 top-16 bg-background/95 backdrop-blur-sm z-40 md:hidden">
           <nav className="flex flex-col items-center justify-center h-full gap-8">
@@ -85,6 +81,7 @@ export default function Header() {
                 {item.name}
               </Link>
             ))}
+            <p className="text-center text-xs text-muted-foreground px-8">{newBharatParty.nonProfitDescriptor}</p>
           </nav>
         </div>
       )}
