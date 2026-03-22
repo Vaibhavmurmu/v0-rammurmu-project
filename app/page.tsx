@@ -1,7 +1,14 @@
 import Link from "next/link"
+import type { Metadata } from "next"
+import { partyProfile } from "@/lib/party-profile"
 
 const moduleCardClass =
   "rounded-xl border border-border/60 bg-card/70 p-6 shadow-sm transition-colors hover:border-primary/50"
+
+export const metadata: Metadata = {
+  title: `${partyProfile.organization_name} | Official Platform`,
+  description: `${partyProfile.organization_name} is a ${partyProfile.legal_status} organization founded by ${partyProfile.founder_name} on ${partyProfile.founded_on}.`,
+}
 
 export default function Home() {
   return (
