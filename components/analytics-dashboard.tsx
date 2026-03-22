@@ -24,39 +24,39 @@ import { ArrowUpRight, Users, Eye, Clock, MousePointerClick, Globe } from "lucid
 
 // Sample analytics data
 const visitorData = [
-  { name: "Jan", visitors: 450, pageViews: 1200 },
-  { name: "Feb", visitors: 520, pageViews: 1400 },
-  { name: "Mar", visitors: 600, pageViews: 1600 },
-  { name: "Apr", visitors: 580, pageViews: 1500 },
-  { name: "May", visitors: 700, pageViews: 1800 },
-  { name: "Jun", visitors: 750, pageViews: 2000 },
-  { name: "Jul", visitors: 790, pageViews: 2100 },
+  { name: "Jan", visitors: 0, pageViews: 0 },
+  { name: "Feb", visitors: 0, pageViews: 0 },
+  { name: "Mar", visitors: 0, pageViews: 0 },
+  { name: "Apr", visitors: 0, pageViews: 0 },
+  { name: "May", visitors: 0, pageViews: 0 },
+  { name: "Jun", visitors: 0, pageViews: 0 },
+  { name: "Jul", visitors: 0, pageViews: 0 },
 ]
 
 const pageViewsData = [
-  { name: "Home", views: 2500 },
-  { name: "Projects", views: 1800 },
-  { name: "Blog", views: 1200 },
-  { name: "About", views: 900 },
-  { name: "Contact", views: 600 },
+  { name: "Home", views: 0 },
+  { name: "Projects", views: 0 },
+  { name: "Blog", views: 0 },
+  { name: "About", views: 0 },
+  { name: "Contact", views: 0 },
 ]
 
 const locationData = [
-  { name: "United States", value: 40 },
-  { name: "India", value: 25 },
-  { name: "United Kingdom", value: 15 },
-  { name: "Germany", value: 10 },
-  { name: "Others", value: 10 },
+  { name: "United States", value: 0 },
+  { name: "India", value: 5 },
+  { name: "United Kingdom", value: 0 },
+  { name: "Germany", value: 0 },
+  { name: "Others", value: 0 },
 ]
 
 const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042", "#8884d8"]
 
 const referrerData = [
-  { name: "Direct", value: 35 },
-  { name: "Google", value: 30 },
-  { name: "LinkedIn", value: 15 },
-  { name: "GitHub", value: 12 },
-  { name: "Twitter", value: 8 },
+  { name: "Direct", value: 0 },
+  { name: "Google", value: 0 },
+  { name: "LinkedIn", value: 0 },
+  { name: "GitHub", value: 0 },
+  { name: "Twitter", value: 0 },
 ]
 
 export default function AnalyticsDashboard() {
@@ -65,8 +65,8 @@ export default function AnalyticsDashboard() {
   // Calculate summary metrics
   const totalVisitors = visitorData.reduce((sum, item) => sum + item.visitors, 0)
   const totalPageViews = visitorData.reduce((sum, item) => sum + item.pageViews, 0)
-  const avgTimeOnSite = "2m 45s"
-  const bounceRate = "32%"
+  const avgTimeOnSite = "0m 0s"
+  const bounceRate = "0%"
 
   return (
     <section id="analytics" className="py-20">
@@ -349,19 +349,19 @@ export default function AnalyticsDashboard() {
                 <ResponsiveContainer width="100%" height="100%">
                   <BarChart
                     data={[
-                      { name: "HealthTrack Pro", views: 1200, engagement: 85 },
-                      { name: "EcoShop", views: 950, engagement: 78 },
-                      { name: "DevConnect", views: 850, engagement: 72 },
-                      { name: "SmartHome Hub", views: 700, engagement: 65 },
-                      { name: "TravelBuddy", views: 650, engagement: 60 },
-                      { name: "CodeReview AI", views: 600, engagement: 58 },
-                      { name: "FinTrack", views: 550, engagement: 55 },
+                      { name: "Runash Son's of Industries", views: 0, engagement: 0 },
+                      { name: "RunAsh", views: 0, engagement: 0 },
+                      { name: "RunAsh AI", views: 0, engagement: 0 },
+                      { name: "RunAsh AI Reasearch Labs", views: 0, engagement: 0 },
+                      { name: "RunAshChat", views: 0, engagement: 0 },
+                      { name: "RunAsh Live", views: 0, engagement: 0 },
+                      { name: "RunAsh Editor", views: 0, engagement: 0 },
                     ]}
                     margin={{
-                      top: 20,
-                      right: 30,
-                      left: 20,
-                      bottom: 5,
+                      top: 0,
+                      right: 0,
+                      left: 0,
+                      bottom: 0,
                     }}
                   >
                     <CartesianGrid strokeDasharray="3 3" />
@@ -425,20 +425,20 @@ export default function AnalyticsDashboard() {
                   <ResponsiveContainer width="100%" height="80%">
                     <BarChart
                       data={[
-                        { name: "Bangalore", value: 15 },
-                        { name: "San Francisco", value: 12 },
-                        { name: "New York", value: 10 },
-                        { name: "London", value: 8 },
-                        { name: "Berlin", value: 6 },
-                        { name: "Toronto", value: 5 },
-                        { name: "Sydney", value: 4 },
+                        { name: "Bangalore", value: 0 },
+                        { name: "San Francisco", value: 0 },
+                        { name: "New York", value: 0 },
+                        { name: "London", value: 0 },
+                        { name: "Berlin", value: 0 },
+                        { name: "Toronto", value: 0 },
+                        { name: "Sydney", value: 0 },
                       ]}
                       layout="vertical"
                       margin={{
-                        top: 5,
-                        right: 30,
-                        left: 20,
-                        bottom: 5,
+                        top: 0,
+                        right: 0,
+                        left: 0,
+                        bottom: 0,
                       }}
                     >
                       <CartesianGrid strokeDasharray="3 3" />
