@@ -11,11 +11,13 @@ import ThemeCustomizer from "@/components/theme-customizer"
 
 const navItems = [
   { name: "Home", href: "#home" },
-  { name: "About", href: "#about" },
-  { name: "Skills", href: "#skills" },
-  { name: "Projects", href: "#projects" },
-  { name: "Timeline", href: "#timeline" },
-  { name: "Blog", href: "#blog" },
+  { name: "Mission", href: "#mission" },
+  { name: "Updates", href: "/updates" },
+  { name: "Volunteer", href: "/volunteer" },
+  { name: "Donate", href: "/donate" },
+  { name: "Register to Vote", href: "/voter-info" },
+  { name: "Advocacy", href: "/advocacy" },
+  { name: "Dashboard", href: "#dashboard" },
   { name: "Contact", href: "#contact" },
 ]
 
