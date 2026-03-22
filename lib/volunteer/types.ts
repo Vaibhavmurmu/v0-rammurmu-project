@@ -21,16 +21,55 @@ export type OutreachConsent = {
   dataRetentionPolicyVersion: string
 }
 
+export type VolunteerStatus = "active" | "paused" | "inactive"
+
 export type Volunteer = {
   volunteerId: string
   fullName: string
   email: string
   phone: string
   role: VolunteerRole
+  status: VolunteerStatus
   languagePreference: "en" | "hi"
   geographyId?: string
   createdAt: string
   consent: OutreachConsent
+}
+
+export type AssignmentStatus = "assigned" | "in_progress" | "completed" | "blocked"
+
+export type Assignment = {
+  assignmentId: string
+  volunteerId: string
+  geographyId: string
+  title: string
+  channel: OutreachChannel
+  assignedByOrganizerId: string
+  assignedAt: string
+  status: AssignmentStatus
+  statusUpdatedAt: string
+}
+
+export type ContactListEntry = {
+  entryId: string
+  assignmentId: string
+  fullName: string
+  addressLine1: string
+  phone?: string
+  priority: "high" | "normal"
+  preferredChannel: OutreachChannel
+  latitude?: number
+  longitude?: number
+  notes?: string
+}
+
+export type CanvassSession = {
+  sessionId: string
+  volunteerId: string
+  assignmentId: string
+  startedAt: string
+  completedAt?: string
+  attemptsLogged: number
 }
 
 export type Geography = {
